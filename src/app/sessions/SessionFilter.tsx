@@ -80,6 +80,7 @@ export default function SessionFilter({
                 <button
                   key={track}
                   onClick={() => setActiveTrack(track)}
+                  aria-pressed={isActive}
                   className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                     isActive
                       ? "bg-bg-inverse text-fg-inverse"
@@ -103,6 +104,7 @@ export default function SessionFilter({
                 <button
                   key={level}
                   onClick={() => setActiveLevel(level)}
+                  aria-pressed={isActive}
                   className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                     isActive
                       ? "bg-bg-inverse text-fg-inverse"

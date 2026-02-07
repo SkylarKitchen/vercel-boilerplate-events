@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -19,7 +20,10 @@ import SplitSection from "@/components/SplitSection";
 import CardLink from "@/components/CardLink";
 import Breadcrumb from "@/components/Breadcrumb";
 
-export const metadata = { title: "Components — Code with Claude 2026" };
+export const metadata: Metadata = {
+  title: "Components — Code with Claude 2026",
+  description: "Design system showcase for the Code with Claude 2026 events site. Browse all components including buttons, cards, navigation, and layout patterns.",
+};
 
 function ShowcaseLabel({ name }: { name: string }) {
   return (
