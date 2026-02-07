@@ -7,6 +7,7 @@ type ResourceCardProps = {
   description?: string;
   tag?: string;
   href?: string;
+  icon?: React.ReactNode;
 };
 
 type InfoCardProps = {
@@ -29,11 +30,12 @@ function TagPill({ children }: { children: React.ReactNode }) {
   );
 }
 
-function ResourceCard({ title, description, tag, href }: ResourceCardProps) {
+function ResourceCard({ title, description, tag, href, icon }: ResourceCardProps) {
   const baseClasses = "bg-bg-primary rounded-card border border-border-tertiary overflow-hidden p-7 lg:p-8 flex flex-col gap-4 h-full transition-colors duration-200";
   const hoverClasses = href ? "hover:bg-gray-050 hover:border-border-secondary" : "";
   const content = (
     <>
+      {icon && <div className="mb-1">{icon}</div>}
       <h3 className="text-h5 font-serif text-fg-primary">{title}</h3>
       {description && (
         <p className="text-body-3 text-fg-tertiary flex-1">{description}</p>

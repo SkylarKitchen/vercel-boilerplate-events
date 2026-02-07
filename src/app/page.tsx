@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import Card from "@/components/Card";
 import Button from "@/components/Button";
 import HomeAnimations from "@/components/HomeAnimations";
+import LottieIcon from "@/components/LottieIcon";
+import MorphShape from "@/components/MorphShape";
 
 type ScheduleItem = {
   time: string;
@@ -46,36 +48,42 @@ const highlights = [
     description:
       "Opening keynote showcasing the latest Claude capabilities, followed by live product demonstrations.",
     tag: "Main Stage",
+    lottie: "/documents/Object-Megaphone.lottie",
   },
   {
     title: "Breakouts & Workshops",
     description:
       "~25 sessions across themed tracks covering agentic development, advanced coding workflows, and more.",
     tag: "Sessions",
+    lottie: "/documents/Object-Books.lottie",
   },
   {
     title: "Product Experiences",
     description:
       "4–6 demo stations, office hours, and direct access to Anthropic's product and research teams.",
     tag: "Hands-On",
+    lottie: "/documents/Object-Desktop.lottie",
   },
   {
     title: "Evening Reception",
     description:
       "Networking reception for all attendees plus a VIP dinner for invited guests and speakers.",
     tag: "Networking",
+    lottie: "/documents/Object-Confetti.lottie",
   },
   {
     title: "Experiential Activations",
     description:
       "Custom keycaps, totes, magnets, 8-bit photo booth, poetry cameras, and more to take home.",
     tag: "Swag & Fun",
+    lottie: "/documents/Hand-Shapes.lottie",
   },
   {
     title: "Livestream",
     description:
       "Can't make it in person? Watch the SF flagship event remotely with full keynote and select sessions.",
     tag: "Virtual",
+    lottie: "/documents/Node-Web.lottie",
   },
 ];
 
@@ -133,8 +141,9 @@ export default function Home() {
       <HomeAnimations />
 
       {/* Hero Section */}
-      <section className="pt-page-top pb-section-sm px-site">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative pt-page-top pb-section-sm px-site overflow-hidden">
+        <MorphShape className="absolute right-[-10%] top-[20%] w-[50vw] max-w-[500px] opacity-[0.06] text-fg-primary pointer-events-none" />
+        <div className="relative max-w-4xl mx-auto text-center">
           <h1
             className="font-serif text-display-1 text-fg-primary mb-8 text-balance"
             data-animate="hero-heading"
@@ -206,6 +215,7 @@ export default function Home() {
                 title={item.title}
                 description={item.description}
                 tag={item.tag}
+                icon={item.lottie ? <LottieIcon src={item.lottie} /> : undefined}
               />
             ))}
           </div>
