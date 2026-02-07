@@ -12,7 +12,6 @@ import Timeline from "@/components/Timeline";
 import Card from "@/components/Card";
 import Button from "@/components/Button";
 import LottieIcon from "@/components/LottieIcon";
-import MorphShape from "@/components/MorphShape";
 
 export const metadata = { title: "Components — Code with Claude 2026" };
 
@@ -175,9 +174,8 @@ export default function ComponentsPage() {
       {/* 1. Hero Demo */}
       <section className="pt-page-top pb-section-sm px-site bg-bg-secondary">
         <div className="max-w-7xl mx-auto">
-          <ShowcaseLabel name="SectionHeader + MorphShape" />
+          <ShowcaseLabel name="SectionHeader" />
           <div className="relative overflow-hidden rounded-card border border-border-tertiary bg-bg-primary p-12 lg:p-16">
-            <MorphShape className="absolute right-[-10%] top-[10%] w-[40vw] max-w-[400px] opacity-[0.06] text-fg-primary pointer-events-none" />
             <div className="relative">
               <SectionHeader
                 eyebrow="Component Showcase"

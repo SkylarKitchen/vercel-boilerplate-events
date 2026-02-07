@@ -4,7 +4,6 @@ import Card from "@/components/Card";
 import Button from "@/components/Button";
 import HomeAnimations from "@/components/HomeAnimations";
 import LottieIcon from "@/components/LottieIcon";
-import MorphShape from "@/components/MorphShape";
 import SectionHeader from "@/components/SectionHeader";
 
 type ScheduleItem = {
@@ -134,7 +133,6 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative pt-page-top pb-section-sm px-site overflow-hidden">
-        <MorphShape className="absolute right-[-10%] top-[20%] w-[50vw] max-w-[500px] opacity-[0.06] text-fg-primary pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center">
           <h1
             className="font-serif text-display-1 text-fg-primary mb-8 text-balance"
