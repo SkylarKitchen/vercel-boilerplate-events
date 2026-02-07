@@ -5,6 +5,7 @@ import Button from "@/components/Button";
 import HomeAnimations from "@/components/HomeAnimations";
 import LottieIcon from "@/components/LottieIcon";
 import MorphShape from "@/components/MorphShape";
+import SectionHeader from "@/components/SectionHeader";
 
 type ScheduleItem = {
   time: string;
@@ -122,15 +123,6 @@ const schedule: ScheduleItem[] = [
     detail: "Networking, drinks & music",
   },
 ];
-
-function SectionHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
-  return (
-    <div className="mb-12" data-animate-wrap>
-      <p className="text-label text-fg-quaternary mb-2" data-animate="heading-body">{eyebrow}</p>
-      <h2 className="text-h2 font-serif text-fg-primary" data-animate="heading">{title}</h2>
-    </div>
-  );
-}
 
 export default function Home() {
   return (

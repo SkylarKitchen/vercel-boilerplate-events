@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Schedule", href: "#schedule" },
   { label: "Locations", href: "#locations" },
   { label: "About", href: "#about" },
+  { label: "Components", href: "/components" },
 ];
 
 type MobileNavProps = {
