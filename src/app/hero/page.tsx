@@ -6,6 +6,16 @@ const heroes = [
   { id: 3, name: "Split Color Block", description: "50/50 split with clay accent panel and organic shapes" },
   { id: 4, name: "Immersive Dark", description: "Always-dark hero with ambient radial glow and ghost buttons" },
   { id: 5, name: "Typographic Marquee", description: "Oversized stacked typography filling the viewport" },
+  { id: 6, name: "Starburst Mosaic", description: "Clay field with repeating asterisk grid and oversized starburst breakouts" },
+  { id: 7, name: "Newspaper Broadsheet", description: "Editorial 3-column layout with masthead, halftone photo, and sidebar countdown" },
+  { id: 8, name: "Vertical Split + Starburst", description: "Clean 50/50 split with clay panel housing a massive cropped starburst" },
+  { id: 9, name: "Utility Info-Bar", description: "Dense info strip top, enormous w/ Claude headline, clay pattern band bottom" },
+  { id: 10, name: "Diagonal Tension", description: "Asymmetric diagonal clip-path splitting ivory content and dark photo zones" },
+  { id: 11, name: "Fig Poster", description: "Full-bleed fig background with giant rotated typography backdrop and triangle accents" },
+  { id: 12, name: "Sky Blueprint", description: "Technical blueprint aesthetic with sky panel, grid texture, and monospace metadata" },
+  { id: 13, name: "Ticket Stub", description: "Physical conference ticket card on warm oat background with perforation detail" },
+  { id: 14, name: "Olive Brutalist", description: "Heavy borders, stacked color blocks, and raw industrial typography with olive panel" },
+  { id: 15, name: "Heather Layers", description: "Overlapping translucent panels on heather with floating content card and depth" },
 ];
 
 export default function HeroIndex() {
@@ -26,7 +36,7 @@ export default function HeroIndex() {
           data-animate="hero"
           data-delay="0.15"
         >
-          Five distinct hero designs for the Code with Claude 2026 conference
+          Fifteen distinct hero designs for the Code with Claude 2026 conference
           landing page. Each explores a different visual direction while using
           the same design token system.
         </p>
