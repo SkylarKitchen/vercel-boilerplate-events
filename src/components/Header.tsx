@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/Button";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
+  { label: "Sessions", href: "/sessions" },
   { label: "Schedule", href: "#schedule" },
-  { label: "Speakers", href: "#speakers" },
   { label: "Locations", href: "#locations" },
   { label: "About", href: "#about" },
 ];
@@ -37,6 +38,7 @@ export default function Header() {
               </Link>
             ))}
           </nav>
+          <ThemeToggle />
           <Button variant="primary" size="sm" iconFormat="none" href="#register">
             Register
           </Button>

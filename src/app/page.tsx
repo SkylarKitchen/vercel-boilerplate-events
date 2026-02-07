@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
 import Button from "@/components/Button";
+import HomeAnimations from "@/components/HomeAnimations";
 
 type ScheduleItem = {
   time: string;
@@ -116,9 +117,9 @@ const schedule: ScheduleItem[] = [
 
 function SectionHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
-    <div className="mb-12">
-      <p className="text-label text-fg-quaternary mb-2">{eyebrow}</p>
-      <h2 className="text-h2 font-serif text-fg-primary">{title}</h2>
+    <div className="mb-12" data-animate-wrap>
+      <p className="text-label text-fg-quaternary mb-2" data-animate="heading-body">{eyebrow}</p>
+      <h2 className="text-h2 font-serif text-fg-primary" data-animate="heading">{title}</h2>
     </div>
   );
 }
@@ -128,34 +129,44 @@ export default function Home() {
     <div className="min-h-screen bg-bg-secondary">
       <Header />
 
+      {/* Client-side GSAP animation orchestrator */}
+      <HomeAnimations />
+
       {/* Hero Section */}
       <section className="pt-page-top pb-section-sm px-site">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-serif text-display-1 text-fg-primary mb-8 text-balance">
+          <h1
+            className="font-serif text-display-1 text-fg-primary mb-8 text-balance"
+            data-animate="hero-heading"
+          >
             Code with Claude 2026
           </h1>
-          <p className="text-body-large-1 text-fg-tertiary max-w-2xl mx-auto mb-10 text-pretty">
-            Anthropic&apos;s annual developer conference. Hands-on workshops,
-            technical sessions, and direct access to our product and research
-            teams.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Button
-              variant="primary"
-              size="lg"
-              iconFormat="trailing"
-              href="#register"
-            >
-              Register for SF
-            </Button>
-            <Button
-              variant="secondary"
-              size="lg"
-              iconFormat="none"
-              href="#events"
-            >
-              View all events
-            </Button>
+          <div data-animate="hero" data-delay="0.4">
+            <p className="text-body-large-1 text-fg-tertiary max-w-2xl mx-auto mb-10 text-pretty">
+              Anthropic&apos;s annual developer conference. Hands-on workshops,
+              technical sessions, and direct access to our product and research
+              teams.
+            </p>
+          </div>
+          <div data-animate="hero" data-delay="0.6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <Button
+                variant="primary"
+                size="lg"
+                iconFormat="trailing"
+                href="#register"
+              >
+                Register for SF
+              </Button>
+              <Button
+                variant="secondary"
+                size="lg"
+                iconFormat="none"
+                href="#events"
+              >
+                View all events
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -165,7 +176,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <SectionHeader eyebrow="2026 Events" title="Three Cities, One Mission" />
 
-          <div className="space-y-6">
+          <div data-animate="stagger" className="space-y-6">
             {events.map((event) => (
               <Card
                 key={event.title}
@@ -187,7 +198,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <SectionHeader eyebrow="What to Expect" title="Program Highlights" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div data-animate="stagger" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {highlights.map((item) => (
               <Card
                 key={item.title}
@@ -207,7 +218,7 @@ export default function Home() {
           <div className="text-center">
             <SectionHeader eyebrow="San Francisco · May 7" title="Schedule at a Glance" />
           </div>
-          <div className="space-y-0">
+          <div data-animate="stagger-fast" className="space-y-0">
             {schedule.map((item) => (
               <div
                 key={item.time}
@@ -219,7 +230,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex-1">
-                  <p className="text-fg-primary font-medium">{item.title}</p>
+                  <p className="text-h6 text-fg-primary font-medium">{item.title}</p>
                   {item.detail && (
                     <p className="text-body-3 text-fg-tertiary mt-0.5">
                       {item.detail}
@@ -229,10 +240,12 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-10">
-            <Button variant="secondary" size="md" iconFormat="trailing" href="#schedule">
-              View Full Schedule
-            </Button>
+          <div data-animate="scroll">
+            <div className="text-center mt-10">
+              <Button variant="secondary" size="md" iconFormat="trailing" href="/sessions">
+                View Full Schedule
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -240,35 +253,37 @@ export default function Home() {
       {/* About / CTA Section */}
       <section id="about" className="bg-bg-primary py-section-md px-site">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-serif text-h2 text-fg-primary mb-6">
-            Why Attend?
-          </h2>
-          <p className="text-body-large-2 text-fg-tertiary mb-8 text-pretty">
-            Code with Claude is intentionally intimate — designed for meaningful
-            connection and deep technical exploration rather than keynote-heavy
-            spectacle. Choose your own path through themed tracks covering
-            Claude&apos;s most powerful capabilities, from agentic development to
-            advanced coding workflows.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">
+          <div data-animate-wrap>
+            <h2 className="font-serif text-h2 text-fg-primary mb-6" data-animate="heading">
+              Why Attend?
+            </h2>
+            <p className="text-body-large-2 text-fg-tertiary mb-8 text-pretty" data-animate="heading-body">
+              Code with Claude is intentionally intimate — designed for meaningful
+              connection and deep technical exploration rather than keynote-heavy
+              spectacle. Choose your own path through themed tracks covering
+              Claude&apos;s most powerful capabilities, from agentic development to
+              advanced coding workflows.
+            </p>
+          </div>
+          <div data-animate="stagger" className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">
             <div>
-              <p className="text-h2 font-serif text-accent-clay mb-2">25+</p>
+              <p className="text-h2 font-serif text-fg-primary mb-2" data-countup="25" data-suffix="+">25+</p>
               <p className="text-body-3 text-fg-tertiary">Sessions</p>
             </div>
             <div>
-              <p className="text-h2 font-serif text-accent-clay mb-2">3</p>
+              <p className="text-h2 font-serif text-fg-primary mb-2" data-countup="3">3</p>
               <p className="text-body-3 text-fg-tertiary">Cities</p>
             </div>
             <div>
-              <p className="text-h2 font-serif text-accent-clay mb-2">
-                1,500+
-              </p>
+              <p className="text-h2 font-serif text-fg-primary mb-2" data-countup="1500" data-suffix="+">1,500+</p>
               <p className="text-body-3 text-fg-tertiary">Developers</p>
             </div>
           </div>
-          <Button variant="primary" size="lg" iconFormat="trailing" href="#register">
-            Register Now
-          </Button>
+          <div data-animate="scroll">
+            <Button variant="primary" size="lg" iconFormat="trailing" href="#register">
+              Register Now
+            </Button>
+          </div>
         </div>
       </section>
 

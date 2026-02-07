@@ -15,6 +15,17 @@
     font-weight: 500;
     @apply tracking-tight;
   }
+
+  /* GSAP autoAlpha: hide scroll-triggered elements before JS hydrates.
+     Prevents flash of content that GSAP would immediately set to invisible.
+     Hero/page-load elements are NOT hidden — GSAP initializes them fast enough. */
+  [data-animate='heading'],
+  [data-animate='heading-body'],
+  [data-animate='scroll'],
+  [data-animate='stagger'] > *,
+  [data-animate='stagger-fast'] > * {
+    visibility: hidden;
+  }
 }
 
 /* ----------------------------------------------------------------
@@ -143,6 +154,24 @@
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  .dark {
+    --color-bg-primary: #141413;
+    --color-bg-secondary: #1D1D1B;
+    --color-bg-tertiary: #262624;
+    --color-bg-inverse: #FAF9F5;
+    --color-fg-primary: #FAF9F5;
+    --color-fg-secondary: #C2C0B6;
+    --color-fg-tertiary: #8B8A85;
+    --color-fg-quaternary: #73726C;
+    --color-fg-inverse: #141413;
+    --color-border-primary: #3D3D3A;
+    --color-border-secondary: #30302E;
+    --color-border-tertiary: #262624;
+    --color-gray-050: #1D1D1B;
+  }
+}
 
 @theme {
   --default-transition-duration: 200ms;
