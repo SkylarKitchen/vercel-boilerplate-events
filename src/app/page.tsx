@@ -132,8 +132,80 @@ export default function Home() {
       {/* Client-side GSAP animation orchestrator */}
       <HomeAnimations />
 
+      <main id="main">
       {/* Hero Section */}
       <section className="relative pt-page-top pb-section-sm px-site overflow-hidden">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "EventSeries",
+              name: "Code with Claude 2026",
+              description:
+                "Anthropic's annual developer conference featuring hands-on workshops, technical sessions, and direct access to product and research teams.",
+              organizer: {
+                "@type": "Organization",
+                name: "Anthropic",
+                url: "https://www.anthropic.com",
+              },
+              subEvent: [
+                {
+                  "@type": "Event",
+                  name: "Code with Claude SF",
+                  startDate: "2026-05-07",
+                  eventAttendanceMode:
+                    "https://schema.org/OfflineEventAttendanceMode",
+                  eventStatus: "https://schema.org/EventScheduled",
+                  location: {
+                    "@type": "Place",
+                    name: "SVN West",
+                    address: {
+                      "@type": "PostalAddress",
+                      addressLocality: "San Francisco",
+                      addressRegion: "CA",
+                      addressCountry: "US",
+                    },
+                  },
+                },
+                {
+                  "@type": "Event",
+                  name: "Code with Claude EMEA",
+                  startDate: "2026-05-20",
+                  eventAttendanceMode:
+                    "https://schema.org/OfflineEventAttendanceMode",
+                  eventStatus: "https://schema.org/EventScheduled",
+                  location: {
+                    "@type": "Place",
+                    name: "London",
+                    address: {
+                      "@type": "PostalAddress",
+                      addressLocality: "London",
+                      addressCountry: "GB",
+                    },
+                  },
+                },
+                {
+                  "@type": "Event",
+                  name: "Code with Claude APJ",
+                  startDate: "2026-06-01",
+                  eventAttendanceMode:
+                    "https://schema.org/OfflineEventAttendanceMode",
+                  eventStatus: "https://schema.org/EventScheduled",
+                  location: {
+                    "@type": "Place",
+                    name: "Tokyo",
+                    address: {
+                      "@type": "PostalAddress",
+                      addressLocality: "Tokyo",
+                      addressCountry: "JP",
+                    },
+                  },
+                },
+              ],
+            }),
+          }}
+        />
         <Image src="/shapes/star.svg" alt="" width={231} height={231} className="absolute right-[-5%] top-[15%] w-[40vw] max-w-[400px] opacity-[0.05] pointer-events-none select-none" aria-hidden="true" />
         <Image src="/shapes/Carrot-1.svg" alt="" width={231} height={231} className="absolute left-[-8%] bottom-[-5%] w-[30vw] max-w-[300px] opacity-[0.04] pointer-events-none select-none" aria-hidden="true" />
         <div className="relative max-w-4xl mx-auto text-center">
@@ -289,6 +361,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

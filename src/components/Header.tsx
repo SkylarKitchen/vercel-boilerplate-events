@@ -3,20 +3,18 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Button from "@/components/Button";
 import ThemeToggle from "@/components/ThemeToggle";
 import MobileNav from "@/components/MobileNav";
+import { navLinks } from "@/data/navigation";
 
-const navLinks = [
-  { label: "Sessions", href: "/sessions" },
-  { label: "Schedule", href: "#schedule" },
-  { label: "Locations", href: "#locations" },
-  { label: "About", href: "#about" },
-  { label: "Components", href: "/components" },
-];
+const isActive = (pathname: string, href: string) =>
+  href === "/" ? pathname === "/" : pathname.startsWith(href) && !href.startsWith("#");
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-border-tertiary bg-bg-primary">
@@ -44,15 +42,19 @@ export default function Header() {
         {/* Right-aligned navigation + CTA */}
         <div className="flex items-center gap-8">
           <nav className="hidden items-center gap-8 md:flex">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-sm text-fg-secondary transition-colors duration-200 hover:text-fg-primary"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const active = isActive(pathname, link.href);
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`text-sm transition-colors duration-200 hover:text-fg-primary ${active ? "text-fg-primary font-medium" : "text-fg-secondary"}`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
           <ThemeToggle />
           <Button variant="primary" size="sm" iconFormat="none" href="#register" className="hidden md:inline-flex">

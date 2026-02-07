@@ -53,6 +53,20 @@ export const metadata: Metadata = {
   title: "Code with Claude 2026 — Anthropic",
   description:
     "Anthropic's annual developer conference. Join us in San Francisco, London, and Tokyo for hands-on workshops, technical sessions, and direct access to our product and research teams.",
+  openGraph: {
+    title: "Code with Claude 2026 — Anthropic",
+    description:
+      "Anthropic's annual developer conference. Hands-on workshops, technical sessions, and direct access to our product and research teams.",
+    siteName: "Anthropic",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@AnthropicAI",
+    title: "Code with Claude 2026 — Anthropic",
+    description:
+      "Anthropic's annual developer conference. Hands-on workshops, technical sessions, and direct access to our product and research teams.",
+  },
 };
 
 export default function RootLayout({
@@ -72,6 +86,12 @@ export default function RootLayout({
       <body
         className={`${anthropicSans.variable} ${anthropicSerif.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-bg-inverse focus:text-fg-inverse focus:rounded-[0.5em] focus:text-sm focus:font-medium"
+        >
+          Skip to content
+        </a>
         {children}
         <DevTools />
       </body>

@@ -2,22 +2,19 @@
 
 import { useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import Button from "@/components/Button";
 import ThemeToggle from "@/components/ThemeToggle";
-
-const navLinks = [
-  { label: "Sessions", href: "/sessions" },
-  { label: "Schedule", href: "#schedule" },
-  { label: "Locations", href: "#locations" },
-  { label: "About", href: "#about" },
-  { label: "Components", href: "/components" },
-];
+import { navLinks } from "@/data/navigation";
 
 type MobileNavProps = {
   open: boolean;
   onClose: () => void;
 };
+
+const isActive = (pathname: string, href: string) =>
+  href === "/" ? pathname === "/" : pathname.startsWith(href) && !href.startsWith("#");
 
 export default function MobileNav({ open, onClose }: MobileNavProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -25,6 +22,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
   const panelRef = useRef<HTMLDivElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
   const isAnimating = useRef(false);
+  const pathname = usePathname();
 
   // Close with animation
   const animateClose = useCallback(() => {
@@ -197,16 +195,20 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
 
         {/* Nav links */}
         <nav className="mt-8 flex flex-col gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              onClick={animateClose}
-              className="text-lg text-fg-secondary hover:text-fg-primary transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const active = isActive(pathname, link.href);
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={animateClose}
+                aria-current={active ? "page" : undefined}
+                className={`text-lg hover:text-fg-primary transition-colors ${active ? "text-fg-primary font-medium" : "text-fg-secondary"}`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Theme toggle */}

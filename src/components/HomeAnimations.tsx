@@ -20,6 +20,24 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
  */
 export default function HomeAnimations() {
   useEffect(() => {
+    // Respect prefers-reduced-motion
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) {
+      // Make all hidden animated elements visible without animation
+      document.querySelectorAll<HTMLElement>("[data-animate]").forEach((el) => {
+        gsap.set(el, { autoAlpha: 1, y: 0 });
+        if (el.dataset.animate === "stagger" || el.dataset.animate === "stagger-fast") {
+          gsap.set(el.children, { autoAlpha: 1, y: 0 });
+        }
+      });
+      document.querySelectorAll<HTMLElement>("[data-countup]").forEach((el) => {
+        const end = parseInt(el.dataset.countup ?? "0", 10);
+        const suffix = el.dataset.suffix ?? "";
+        el.textContent = end.toLocaleString() + suffix;
+      });
+      return; // Skip all animation setup
+    }
+
     const splits: SplitText[] = [];
 
     const ctx = gsap.context(() => {

@@ -16,7 +16,7 @@ function SessionCard({
   return (
     <Link
       href={`/sessions/${session.id}`}
-      className="group block bg-bg-primary rounded-card border border-border-tertiary p-7 lg:p-8 hover:bg-gray-050 hover:border-border-secondary transition-colors"
+      className="group block bg-bg-primary rounded-card border border-border-tertiary p-7 lg:p-8 hover:bg-bg-secondary hover:border-border-secondary transition-colors"
     >
       {/* Track pill */}
       <p className="text-caption text-fg-quaternary mb-3">{session.track}</p>
@@ -58,32 +58,63 @@ export default function SessionFilter({
   levelColors: Record<Level, string>;
 }) {
   const [activeTrack, setActiveTrack] = useState<string>("All");
+  const [activeLevel, setActiveLevel] = useState<string>("All");
 
-  const filtered =
-    activeTrack === "All"
-      ? sessions
-      : sessions.filter((s) => s.track === activeTrack);
+  const filtered = sessions.filter((s) => {
+    const matchesTrack = activeTrack === "All" || s.track === activeTrack;
+    const matchesLevel = activeLevel === "All" || s.level === activeLevel;
+    return matchesTrack && matchesLevel;
+  });
 
   return (
     <>
-      {/* Filter pills */}
-      <div className="flex flex-wrap items-center gap-3 mb-10">
-        {["All", ...tracks].map((track) => {
-          const isActive = activeTrack === track;
-          return (
-            <button
-              key={track}
-              onClick={() => setActiveTrack(track)}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                isActive
-                  ? "bg-bg-inverse text-fg-inverse"
-                  : "bg-bg-tertiary text-fg-secondary border border-border-secondary hover:bg-bg-primary"
-              }`}
-            >
-              {track}
-            </button>
-          );
-        })}
+      {/* Filter groups */}
+      <div className="space-y-4 mb-10">
+        {/* Track filter */}
+        <div>
+          <p className="text-label text-fg-quaternary mb-3">Track</p>
+          <div className="flex flex-wrap items-center gap-3">
+            {["All", ...tracks].map((track) => {
+              const isActive = activeTrack === track;
+              return (
+                <button
+                  key={track}
+                  onClick={() => setActiveTrack(track)}
+                  className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    isActive
+                      ? "bg-bg-inverse text-fg-inverse"
+                      : "bg-bg-tertiary text-fg-secondary border border-border-secondary hover:bg-bg-primary"
+                  }`}
+                >
+                  {track}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Level filter */}
+        <div>
+          <p className="text-label text-fg-quaternary mb-3">Level</p>
+          <div className="flex flex-wrap items-center gap-3">
+            {(["All", "Beginner", "Intermediate", "Advanced"] as const).map((level) => {
+              const isActive = activeLevel === level;
+              return (
+                <button
+                  key={level}
+                  onClick={() => setActiveLevel(level)}
+                  className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    isActive
+                      ? "bg-bg-inverse text-fg-inverse"
+                      : "bg-bg-tertiary text-fg-secondary border border-border-secondary hover:bg-bg-primary"
+                  }`}
+                >
+                  {level}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {/* Sessions grid */}
@@ -101,7 +132,7 @@ export default function SessionFilter({
       {filtered.length === 0 && (
         <div className="text-center py-16">
           <p className="text-body-1 text-fg-tertiary">
-            No sessions found for this track.
+            No sessions found for the selected filters.
           </p>
         </div>
       )}

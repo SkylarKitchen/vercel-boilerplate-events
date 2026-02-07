@@ -24,6 +24,10 @@ export async function generateMetadata({
   return {
     title: `${session.title} | Code with Claude 2026`,
     description: session.description,
+    openGraph: {
+      title: `${session.title} | Code with Claude 2026`,
+      description: session.description,
+    },
   };
 }
 
@@ -47,7 +51,25 @@ export default async function SessionDetailPage({
     <div className="min-h-screen bg-bg-secondary">
       <Header />
 
-      <main className="pt-page-top pb-section-sm px-site">
+      <main id="main" className="pt-page-top pb-section-sm px-site">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "EducationEvent",
+              name: session.title,
+              description: session.description,
+              performer: {
+                "@type": "Person",
+                name: session.speaker.name,
+                jobTitle: session.speaker.role,
+              },
+              about: session.track,
+              educationalLevel: session.level,
+            }),
+          }}
+        />
         {/* Back link */}
         <div className="max-w-6xl mx-auto">
           <Link

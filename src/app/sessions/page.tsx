@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Sessions — Code with Claude 2026",
   description:
     "Browse 25+ technical sessions and workshops across Agentic Development, Advanced Coding, and Platform & Infrastructure tracks at Code with Claude 2026.",
+  openGraph: {
+    title: "Sessions — Code with Claude 2026",
+    description:
+      "Browse 25+ technical sessions and workshops across three tracks at Code with Claude 2026.",
+  },
 };
 
 export default function SessionsPage() {
@@ -15,6 +20,7 @@ export default function SessionsPage() {
     <div className="min-h-screen bg-bg-secondary">
       <Header />
 
+      <main id="main">
       {/* Hero */}
       <section className="pt-page-top pb-section-sm px-site">
         <div className="max-w-4xl mx-auto text-center">
@@ -40,6 +46,7 @@ export default function SessionsPage() {
           />
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

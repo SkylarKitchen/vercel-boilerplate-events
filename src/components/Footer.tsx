@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const policyLinks = [
-  { label: "Privacy choices", href: "#" },
-  { label: "Privacy policy", href: "#" },
-  { label: "Responsible disclosure policy", href: "#" },
-  { label: "Terms of service: Commercial", href: "#" },
-  { label: "Terms of service: Consumer", href: "#" },
-  { label: "Usage policy", href: "#" },
+  { label: "Privacy choices", href: "https://www.anthropic.com/legal/privacy-choices" },
+  { label: "Privacy policy", href: "https://www.anthropic.com/legal/privacy" },
+  { label: "Responsible disclosure policy", href: "https://www.anthropic.com/legal/responsible-disclosure" },
+  { label: "Terms of service: Commercial", href: "https://www.anthropic.com/legal/commercial-terms" },
+  { label: "Terms of service: Consumer", href: "https://www.anthropic.com/legal/consumer-terms" },
+  { label: "Usage policy", href: "https://www.anthropic.com/legal/aup" },
 ];
 
 const socialLinks = [
@@ -100,13 +100,15 @@ export default function Footer() {
             </h3>
             <nav className="flex flex-col gap-2.5">
               {policyLinks.map((link) => (
-                <Link
+                <a
                   key={link.label}
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm text-fg-inverse/80 hover:text-fg-inverse transition-colors"
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
             </nav>
           </div>
