@@ -1,0 +1,251 @@
+@import 'tailwindcss';
+
+@plugin "@tailwindcss/typography";
+
+@layer base {
+  body {
+    --font-serif: var(--font-anthropic-serif), Georgia, serif;
+    --font-sans: var(--font-anthropic-sans), system-ui, -apple-system, sans-serif;
+    --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+    font-family: var(--font-sans);
+    @apply text-fg-primary bg-bg-secondary;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    @apply tracking-tight;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Responsive Typography Utilities
+   Brand scale: viewport 320px (20rem) → 1440px (90rem)
+   Font: Anthropic Serif for headings, Anthropic Sans for body
+   ---------------------------------------------------------------- */
+
+@utility text-display-1 {
+  font-size: clamp(2.625rem, 2.089rem + 2.679vw, 4.5rem);
+  line-height: 1.1;
+}
+
+@utility text-display-2 {
+  font-size: clamp(2.25rem, 1.75rem + 2.5vw, 4rem);
+  line-height: 1.1;
+}
+
+@utility text-h1 {
+  font-size: clamp(2.125rem, 1.804rem + 1.607vw, 3.25rem);
+  line-height: 1.2;
+}
+
+@utility text-h2 {
+  font-size: clamp(1.875rem, 1.625rem + 1.25vw, 2.75rem);
+  line-height: 1.2;
+}
+
+@utility text-h3 {
+  font-size: clamp(1.75rem, 1.607rem + 0.714vw, 2.25rem);
+  line-height: 1.3;
+}
+
+@utility text-h4 {
+  font-size: clamp(1.4375rem, 1.277rem + 0.804vw, 2rem);
+  line-height: 1.1;
+}
+
+@utility text-h5 {
+  font-size: clamp(1.25rem, 1.161rem + 0.446vw, 1.5625rem);
+  line-height: 1.2;
+}
+
+@utility text-h6 {
+  font-size: clamp(1rem, 0.946rem + 0.268vw, 1.1875rem);
+  line-height: 1.2;
+}
+
+@utility text-body-large-1 {
+  font-size: clamp(1.375rem, 1.339rem + 0.179vw, 1.5rem);
+  line-height: 1.6;
+}
+
+@utility text-body-large-2 {
+  font-size: clamp(1.25rem, 1.196rem + 0.268vw, 1.4375rem);
+  line-height: 1.5;
+}
+
+@utility text-body-1 {
+  font-size: clamp(1.1875rem, 1.17rem + 0.089vw, 1.25rem);
+  line-height: 1.6;
+}
+
+@utility text-body-2 {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+@utility text-body-3 {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+@utility text-caption {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+@utility text-micro {
+  font-size: 0.625rem;
+  line-height: 1.5;
+}
+
+@utility rounded-card {
+  border-radius: var(--radius-responsive-lg);
+}
+
+@utility text-label {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+@utility container {
+  margin: 0 auto;
+  padding-inline: clamp(2rem, 1.429rem + 2.857vw, 4rem);
+}
+
+/* ----------------------------------------------------------------
+   Responsive Spacing Utilities
+   ---------------------------------------------------------------- */
+
+@utility px-site {
+  padding-inline: clamp(2rem, 1.429rem + 2.857vw, 4rem);
+}
+
+@utility py-section-sm {
+  padding-block: clamp(4rem, 3.429rem + 2.857vw, 6rem);
+}
+
+@utility py-section-md {
+  padding-block: clamp(6rem, 5.429rem + 2.857vw, 8rem);
+}
+
+@utility py-section-lg {
+  padding-block: clamp(8rem, 6.714rem + 6.429vw, 12.5rem);
+}
+
+@utility pt-page-top {
+  padding-top: clamp(12rem, 11.143rem + 4.286vw, 15rem);
+}
+
+@utility pb-section-sm {
+  padding-bottom: clamp(4rem, 3.429rem + 2.857vw, 6rem);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --default-transition-duration: 200ms;
+
+  /* Viewport scale (for clamp calculations) */
+  /* viewport-min: 20rem (320px), viewport-max: 90rem (1440px) */
+
+  /* Backgrounds */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #FAF9F5;
+  --color-bg-tertiary: #F5F4ED;
+  --color-bg-inverse: #141413;
+
+  /* Foregrounds */
+  --color-fg-primary: #141413;
+  --color-fg-secondary: #30302E;
+  --color-fg-tertiary: #5E5D59;
+  --color-fg-quaternary: #8B8A85;
+  --color-fg-inverse: #FAF9F5;
+
+  /* Borders */
+  --color-border-primary: #C2C0B6;
+  --color-border-secondary: #DEDCD1;
+  --color-border-tertiary: #F0EEE6;
+
+  /* Accents */
+  --color-accent-clay: #D97757;
+  --color-accent-clay-interactive: #C6613F;
+  --color-accent-clay-light: #E8A58C;
+  --color-accent-oat: #E3DACC;
+
+  /* Extended brand colors */
+  --color-accent-olive: #788C5D;
+  --color-accent-cactus: #BCD1CA;
+  --color-accent-sky: #6A9BCC;
+  --color-accent-heather: #CBCADB;
+  --color-accent-fig: #C46686;
+  --color-accent-coral: #EBCECE;
+
+  /* Full gray scale */
+  --color-gray-000: #FFFFFF;
+  --color-gray-050: #FAF9F5;
+  --color-gray-100: #F5F4ED;
+  --color-gray-150: #F0EEE6;
+  --color-gray-200: #E8E6DC;
+  --color-gray-250: #DEDCD1;
+  --color-gray-300: #D1CFC5;
+  --color-gray-350: #C2C0B6;
+  --color-gray-400: #B0AEA5;
+  --color-gray-450: #9C9A92;
+  --color-gray-500: #87867F;
+  --color-gray-550: #73726C;
+  --color-gray-600: #5E5D59;
+  --color-gray-650: #4D4C48;
+  --color-gray-700: #3D3D3A;
+  --color-gray-750: #30302E;
+  --color-gray-800: #262624;
+  --color-gray-850: #1F1E1D;
+  --color-gray-900: #1A1918;
+  --color-gray-950: #141413;
+  --color-gray-1000: #000000;
+
+  /* Dark theme tokens */
+  --color-dark-bg-primary: #141413;
+  --color-dark-bg-secondary: #1D1D1B;
+  --color-dark-bg-tertiary: #262624;
+  --color-dark-fg-primary: #FAF9F5;
+  --color-dark-fg-secondary: #C2C0B6;
+  --color-dark-fg-tertiary: #8B8A85;
+  --color-dark-border-primary: #3D3D3A;
+  --color-dark-border-secondary: #30302E;
+
+  /* Legacy compat */
+  --color-black: #141413;
+  --color-white: #FFFFFF;
+
+  /* Radii (from brand) */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-3xl: 48px;
+  --radius-4xl: 64px;
+
+  /* Responsive radii */
+  --radius-responsive-xl: clamp(1rem, 0.714rem + 1.429vw, 2rem);
+  --radius-responsive-lg: clamp(1rem, 0.857rem + 0.714vw, 1.5rem);
+
+  /* Fonts */
+  --font-sans: var(--font-anthropic-sans), system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-anthropic-serif), Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* Spacing — responsive section spaces */
+  --spacing-section-sm: clamp(4rem, 3.429rem + 2.857vw, 6rem);
+  --spacing-section-md: clamp(6rem, 5.429rem + 2.857vw, 8rem);
+  --spacing-section-lg: clamp(8rem, 6.714rem + 6.429vw, 12.5rem);
+  --spacing-page-top: clamp(12rem, 11.143rem + 4.286vw, 15rem);
+  --spacing-site-margin: clamp(2rem, 1.429rem + 2.857vw, 4rem);
+
+  /* Shadows */
+  --shadow-layer: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+  --shadow-btn-hover: 0 0 0 2px currentColor;
+}
