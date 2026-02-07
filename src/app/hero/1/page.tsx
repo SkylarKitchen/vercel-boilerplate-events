@@ -5,8 +5,13 @@ import CountdownClient from "../_components/CountdownClient";
 export default function Hero1() {
   return (
     <main className="min-h-screen flex flex-col bg-bg-secondary">
+      {/* Visually-hidden h1 for accessibility/SEO */}
+      <h1 className="sr-only">
+        Code with Claude 2026 — Countdown to the Developer Conference
+      </h1>
+
       {/* Main hero area */}
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1fr_40%]">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1fr_45%]">
         {/* Left — Branding + Countdown */}
         <div className="flex flex-col justify-between px-site py-10 lg:py-14">
           {/* Top bar: serif title left, mono date right */}
@@ -30,47 +35,34 @@ export default function Hero1() {
             <CountdownClient variant="stacked" />
           </div>
 
-          {/* Bottom CTA */}
+          {/* Bottom CTA with body text */}
           <div
-            className="flex items-center gap-3"
             data-animate="hero"
             data-delay="0.6"
           >
-            <Button variant="primary" size="lg" href="#register" iconFormat="none">
-              Apply to attend
-            </Button>
+            <p className="text-body-2 text-fg-secondary mb-4">
+              Join us for the first Claude Developer Conference by Anthropic.
+            </p>
+            <div className="flex items-center gap-3">
+              <Button variant="primary" size="lg" href="#register" iconFormat="none">
+                Apply to attend
+              </Button>
+            </div>
           </div>
         </div>
 
-        {/* Right — Dark panel with subtle shapes (substitute for halftone photo) */}
+        {/* Right — Dark panel with halftone crowd photo */}
         <div
           className="relative hidden lg:block overflow-hidden bg-bg-inverse"
           data-animate="hero"
           data-delay="0.3"
         >
-          {/* CWC shape — large, bleeding off top-right */}
           <Image
-            src="/shapes/cwc.svg"
-            alt=""
-            width={500}
-            height={500}
-            className="absolute -top-16 -right-8 w-[380px] opacity-[0.08] brightness-0 invert"
-          />
-          {/* Star shape — bottom area */}
-          <Image
-            src="/shapes/star.svg"
-            alt=""
-            width={400}
-            height={400}
-            className="absolute -bottom-12 -left-8 w-[300px] opacity-[0.06] brightness-0 invert"
-          />
-          {/* Grid texture — center */}
-          <Image
-            src="/shapes/grid.svg"
-            alt=""
-            width={200}
-            height={200}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] opacity-[0.04] brightness-0 invert"
+            src="/imgs/Layer_1.png"
+            alt="Halftone crowd photo from a developer conference"
+            fill
+            className="object-cover"
+            priority
           />
         </div>
       </div>
