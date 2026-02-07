@@ -1,0 +1,11 @@
+{
+  "name": "Code with Claude Codegen",
+  "id": "code-with-claude-codegen",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "editorType": ["figma", "dev"],
+  "networkAccess": {
+    "allowedDomains": ["none"]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "figma-codegen-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"vite build --watch --config vite.config.plugin.ts\" \"vite build --watch --config vite.config.ui.ts\"",
+    "build": "vite build --config vite.config.plugin.ts && vite build --config vite.config.ui.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.106.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "esbuild-wasm": "^0.27.3",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0",
+    "vitest": "^3.0.0"
+  }
+}
