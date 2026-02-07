@@ -6,15 +6,12 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import Button from "@/components/Button";
 import ThemeToggle from "@/components/ThemeToggle";
-import { navLinks } from "@/data/navigation";
+import { navLinks, isActive } from "@/data/navigation";
 
 type MobileNavProps = {
   open: boolean;
   onClose: () => void;
 };
-
-const isActive = (pathname: string, href: string) =>
-  href === "/" ? pathname === "/" : pathname.startsWith(href) && !href.startsWith("#");
 
 export default function MobileNav({ open, onClose }: MobileNavProps) {
   const overlayRef = useRef<HTMLDivElement>(null);

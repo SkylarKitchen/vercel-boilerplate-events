@@ -255,6 +255,7 @@ export default function ComponentsPage() {
       <Header />
       <HomeAnimations />
 
+      <main id="main">
       {/* 1. Hero Demo */}
       <section className="pt-page-top pb-section-sm px-site bg-bg-secondary">
         <div className="max-w-7xl mx-auto">
@@ -587,6 +588,7 @@ export default function ComponentsPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

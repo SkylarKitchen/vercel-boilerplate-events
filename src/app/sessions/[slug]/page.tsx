@@ -164,45 +164,44 @@ export default async function SessionDetailPage({
             </div>
           </div>
         </div>
-      </main>
+        {/* Related sessions */}
+        {relatedSessions.length > 0 && (
+          <section className="py-section-md px-site">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-h3 font-serif text-fg-primary">
+                More from {session.track}
+              </h2>
 
-      {/* Related sessions */}
-      {relatedSessions.length > 0 && (
-        <section className="py-section-md px-site">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-h3 font-serif text-fg-primary">
-              More from {session.track}
-            </h2>
-
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {relatedSessions.map((related) => (
-                <Link
-                  key={related.id}
-                  href={`/sessions/${related.id}`}
-                  className="bg-bg-secondary rounded-card border border-border-tertiary p-7 hover:bg-bg-primary hover:border-border-secondary transition-colors"
-                >
-                  <h3 className="text-h5 font-serif text-fg-primary">
-                    {related.title}
-                  </h3>
-                  <p className="text-body-3 text-fg-tertiary mt-2">
-                    {related.speaker.name}
-                  </p>
-                  <div className="flex items-center justify-between mt-4">
-                    <p className="text-caption text-fg-quaternary">
-                      {related.time}
+              <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {relatedSessions.map((related) => (
+                  <Link
+                    key={related.id}
+                    href={`/sessions/${related.id}`}
+                    className="bg-bg-secondary rounded-card border border-border-tertiary p-7 hover:bg-bg-primary hover:border-border-secondary transition-colors"
+                  >
+                    <h3 className="text-h5 font-serif text-fg-primary">
+                      {related.title}
+                    </h3>
+                    <p className="text-body-3 text-fg-tertiary mt-2">
+                      {related.speaker.name}
                     </p>
-                    <span
-                      className={`rounded-full px-2 py-0.5 text-caption ${levelColors[related.level]}`}
-                    >
-                      {related.level}
-                    </span>
-                  </div>
-                </Link>
-              ))}
+                    <div className="flex items-center justify-between mt-4">
+                      <p className="text-caption text-fg-quaternary">
+                        {related.time}
+                      </p>
+                      <span
+                        className={`rounded-full px-2 py-0.5 text-caption ${levelColors[related.level]}`}
+                      >
+                        {related.level}
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        )}
+      </main>
 
       <Footer />
     </div>

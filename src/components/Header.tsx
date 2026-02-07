@@ -7,10 +7,7 @@ import { usePathname } from "next/navigation";
 import Button from "@/components/Button";
 import ThemeToggle from "@/components/ThemeToggle";
 import MobileNav from "@/components/MobileNav";
-import { navLinks } from "@/data/navigation";
-
-const isActive = (pathname: string, href: string) =>
-  href === "/" ? pathname === "/" : pathname.startsWith(href) && !href.startsWith("#");
+import { navLinks, isActive } from "@/data/navigation";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
