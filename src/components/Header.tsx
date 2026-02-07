@@ -29,6 +29,15 @@ export default function Header() {
             width={130}
             height={28}
             priority
+            className="dark:hidden"
+          />
+          <Image
+            src="/claude-logo-light.svg"
+            alt="Claude"
+            width={130}
+            height={28}
+            priority
+            className="hidden dark:block"
           />
         </Link>
 

@@ -157,7 +157,7 @@ export default async function SessionDetailPage({
                 <Link
                   key={related.id}
                   href={`/sessions/${related.id}`}
-                  className="bg-bg-primary rounded-card border border-border-tertiary p-7 hover:bg-gray-050 hover:border-border-secondary transition-colors"
+                  className="bg-bg-secondary rounded-card border border-border-tertiary p-7 hover:bg-bg-primary hover:border-border-secondary transition-colors"
                 >
                   <h3 className="text-h5 font-serif text-fg-primary">
                     {related.title}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HomeAnimations from "@/components/HomeAnimations";
@@ -27,6 +28,26 @@ function ShowcaseLabel({ name }: { name: string }) {
         {name}
       </span>
     </div>
+  );
+}
+
+/** Decorative brand shape positioned absolutely within a relative parent */
+function ShapeAccent({
+  src,
+  className,
+}: {
+  src: string;
+  className: string;
+}) {
+  return (
+    <Image
+      src={src}
+      alt=""
+      width={231}
+      height={231}
+      className={`pointer-events-none select-none ${className}`}
+      aria-hidden="true"
+    />
   );
 }
 
@@ -235,6 +256,8 @@ export default function ComponentsPage() {
         <div className="max-w-7xl mx-auto">
           <ShowcaseLabel name="SectionHeader" />
           <div className="relative overflow-hidden rounded-card border border-border-tertiary bg-bg-primary p-12 lg:p-16">
+            <ShapeAccent src="/shapes/star.svg" className="absolute right-[-5%] top-[10%] w-[30vw] max-w-[300px] opacity-[0.04]" />
+            <ShapeAccent src="/shapes/Carrot-1.svg" className="absolute left-[-8%] bottom-[-10%] w-[25vw] max-w-[250px] opacity-[0.04]" />
             <div className="relative">
               <SectionHeader
                 eyebrow="Component Showcase"
