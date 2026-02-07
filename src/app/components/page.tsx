@@ -16,6 +16,16 @@ import MorphShape from "@/components/MorphShape";
 
 export const metadata = { title: "Components — Code with Claude 2026" };
 
+function ShowcaseLabel({ name }: { name: string }) {
+  return (
+    <div className="mb-6">
+      <span className="inline-block px-3 py-1 rounded-full bg-accent-clay text-white text-caption font-medium">
+        {name}
+      </span>
+    </div>
+  );
+}
+
 const logos = [
   { src: "/anthropic-wordmark.svg", alt: "Anthropic" },
   { src: "/claude-spark.svg", alt: "Claude" },
@@ -28,47 +38,47 @@ const logos = [
 const testimonials = [
   {
     quote:
-      "Code with Claude completely changed how I think about agentic workflows. The hands-on workshops were worth the trip alone.",
-    author: "Priya Sharma",
-    role: "Staff Engineer",
-    company: "Vercel",
+      "Claude Code transformed our development workflow. We ship features 3x faster now.",
+    author: "Sarah Chen",
+    role: "Lead Engineer",
+    company: "TechCorp",
   },
   {
     quote:
-      "The deep dives into Claude's coding capabilities gave our team practical patterns we shipped the following week.",
-    author: "Marcus Chen",
-    role: "Engineering Lead",
-    company: "Stripe",
+      "The agentic capabilities are unlike anything I've used before. It actually understands our codebase.",
+    author: "Marcus Rivera",
+    role: "CTO",
+    company: "StartupAI",
   },
   {
     quote:
-      "Intimate, technical, and genuinely useful. This is what developer conferences should be.",
-    author: "Ava Lindgren",
+      "Best developer conference I've attended. The workshops were incredibly hands-on.",
+    author: "Priya Patel",
     role: "Senior Developer",
-    company: "Shopify",
+    company: "DataFlow",
   },
 ];
 
 const faqItems = [
   {
-    question: "When and where is Code with Claude 2026?",
+    question: "What is Code with Claude?",
     answer:
-      "The flagship event is May 7, 2026 at SVN West in San Francisco. Additional events follow in London (May 20) and Tokyo (June 2026).",
+      "Code with Claude is Anthropic's annual developer conference featuring hands-on workshops, technical sessions, and direct access to our product and research teams. The 2026 edition spans three cities worldwide.",
   },
   {
     question: "Who should attend?",
     answer:
-      "Code with Claude is designed for developers, engineering leads, and technical decision-makers who want hands-on experience with Claude's most powerful capabilities.",
+      "The event is designed for developers, engineers, and technical decision-makers who want hands-on experience with Claude's most powerful capabilities, from agentic development to advanced coding workflows.",
   },
   {
     question: "Will sessions be recorded?",
     answer:
-      "The SF flagship event will be livestreamed, and select sessions will be available on-demand after the event. In-person attendees get access to all workshops and demo stations.",
+      "Yes, the SF flagship event will be livestreamed and select sessions will be available on-demand after the event. In-person attendees get access to all workshops and demo stations.",
   },
   {
-    question: "What is the cost to attend?",
+    question: "How do I register?",
     answer:
-      "Registration details and pricing will be announced soon. Join the waitlist to be notified when tickets become available.",
+      "Registration is now open for the SF event. London and Tokyo events will open registration soon. Join the waitlist to be notified when tickets become available.",
   },
 ];
 
@@ -126,7 +136,7 @@ const featureCards = [
   {
     title: "Product Experiences",
     description:
-      "4–6 demo stations, office hours, and direct access to Anthropic's product and research teams.",
+      "4\u20136 demo stations, office hours, and direct access to Anthropic\u2019s product and research teams.",
     tag: "Hands-On",
     lottie: "/documents/Object-Desktop.lottie",
   },
@@ -136,8 +146,8 @@ const infoCards = [
   {
     title: "Code with Claude SF",
     description:
-      "The flagship event featuring the full program — keynote, 25+ breakout sessions, and hands-on workshops.",
-    meta: "May 7, 2026 · San Francisco · SVN West",
+      "The flagship event featuring the full program \u2014 keynote, 25+ breakout sessions, and hands-on workshops.",
+    meta: "May 7, 2026 \u00b7 San Francisco \u00b7 SVN West",
     tags: ["700 Attendees", "Livestream", "Flagship"],
     actionLabel: "Register for SF",
     actionHref: "#register",
@@ -146,20 +156,15 @@ const infoCards = [
     title: "Code with Claude EMEA",
     description:
       "Bringing the Code with Claude experience to Europe with tailored content for the EMEA developer community.",
-    meta: "May 20, 2026 · London",
+    meta: "May 20, 2026 \u00b7 London",
     tags: ["500 Attendees", "EMEA"],
     actionLabel: "Join Waitlist",
     actionHref: "#register",
   },
 ];
 
-function ComponentLabel({ name }: { name: string }) {
-  return (
-    <div className="absolute -top-3 left-6 z-10 px-3 py-1 rounded-full bg-accent-clay text-white text-caption font-medium">
-      {name}
-    </div>
-  );
-}
+const buttonVariants = ["primary", "secondary", "tertiary", "clay"] as const;
+const buttonSizes = ["sm", "md", "lg"] as const;
 
 export default function ComponentsPage() {
   return (
@@ -167,65 +172,17 @@ export default function ComponentsPage() {
       <Header />
       <HomeAnimations />
 
-      {/* Page Title */}
-      <section className="pt-page-top pb-section-sm px-site">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1
-            className="font-serif text-display-2 text-fg-primary mb-4"
-            data-animate="hero-heading"
-          >
-            Component Showcase
-          </h1>
-          <div data-animate="hero" data-delay="0.3">
-            <p className="text-body-large-1 text-fg-tertiary">
-              All reusable components in the design system, demonstrated with sample data.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Hero Demo */}
-      <section className="py-section-sm px-site bg-bg-primary">
+      {/* 1. Hero Demo */}
+      <section className="pt-page-top pb-section-sm px-site bg-bg-secondary">
         <div className="max-w-7xl mx-auto">
-          <div className="relative">
-            <ComponentLabel name="MorphShape + Hero" />
-            <div className="relative overflow-hidden rounded-card border border-border-tertiary bg-bg-secondary p-12 lg:p-16">
-              <MorphShape className="absolute right-[-10%] top-[10%] w-[40vw] max-w-[400px] opacity-[0.06] text-fg-primary pointer-events-none" />
-              <div className="relative text-center max-w-2xl mx-auto">
-                <h2 className="font-serif text-display-2 text-fg-primary mb-4">
-                  Hero Example
-                </h2>
-                <p className="text-body-large-2 text-fg-tertiary mb-8">
-                  A hero section with MorphShape background animation and call-to-action buttons.
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                  <Button variant="primary" size="lg" iconFormat="trailing" href="#register">
-                    Primary Action
-                  </Button>
-                  <Button variant="secondary" size="lg" iconFormat="none" href="#events">
-                    Secondary Action
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SectionHeader */}
-      <section className="py-section-sm px-site bg-bg-secondary">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative">
-            <ComponentLabel name="SectionHeader" />
-            <div className="pt-6">
+          <ShowcaseLabel name="SectionHeader + MorphShape" />
+          <div className="relative overflow-hidden rounded-card border border-border-tertiary bg-bg-primary p-12 lg:p-16">
+            <MorphShape className="absolute right-[-10%] top-[10%] w-[40vw] max-w-[400px] opacity-[0.06] text-fg-primary pointer-events-none" />
+            <div className="relative">
               <SectionHeader
-                eyebrow="Left Aligned"
-                title="Default Section Header"
-                description="An optional description that provides additional context below the heading."
-              />
-              <SectionHeader
-                eyebrow="Centered"
-                title="Centered Section Header"
+                eyebrow="Component Showcase"
+                title="Reusable Section Patterns"
+                description="Every component in the design system, demonstrated with realistic sample data and alternating section backgrounds."
                 align="center"
               />
             </div>
@@ -233,234 +190,238 @@ export default function ComponentsPage() {
         </div>
       </section>
 
-      {/* LogoWall */}
-      <section className="py-section-sm px-site bg-bg-primary">
+      {/* 2. SectionHeader */}
+      <section className="py-section-md px-site bg-bg-primary">
         <div className="max-w-7xl mx-auto">
-          <div className="relative">
-            <ComponentLabel name="LogoWall" />
-            <div className="pt-6">
-              <SectionHeader eyebrow="Partners" title="Trusted By" />
-              <LogoWall logos={logos} />
-            </div>
+          <ShowcaseLabel name="SectionHeader" />
+          <SectionHeader
+            eyebrow="Left Aligned"
+            title="Default Section Header"
+            description="An optional description that provides additional context below the heading."
+          />
+          <div className="mt-16">
+            <SectionHeader
+              eyebrow="Centered"
+              title="Centered Section Header"
+              align="center"
+            />
           </div>
         </div>
       </section>
 
-      {/* Feature Cards (ResourceCard) */}
-      <section className="py-section-sm px-site bg-bg-secondary">
+      {/* 3. Logo Wall */}
+      <section className="py-section-md px-site bg-bg-secondary">
         <div className="max-w-7xl mx-auto">
-          <div className="relative">
-            <ComponentLabel name="Card (resource)" />
-            <div className="pt-6">
-              <SectionHeader eyebrow="What to Expect" title="Program Highlights" />
-              <div data-animate="stagger" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {featureCards.map((item) => (
-                  <Card
-                    key={item.title}
-                    variant="resource"
-                    title={item.title}
-                    description={item.description}
-                    tag={item.tag}
-                    icon={<LottieIcon src={item.lottie} />}
-                  />
-                ))}
-              </div>
-            </div>
+          <ShowcaseLabel name="LogoWall" />
+          <SectionHeader eyebrow="Partners" title="Trusted By" />
+          <LogoWall logos={logos} />
+        </div>
+      </section>
+
+      {/* 4. Feature Cards (ResourceCard) */}
+      <section className="py-section-md px-site bg-bg-primary">
+        <div className="max-w-7xl mx-auto">
+          <ShowcaseLabel name="Card variant=&quot;resource&quot;" />
+          <SectionHeader eyebrow="What to Expect" title="Program Highlights" />
+          <div data-animate="stagger" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featureCards.map((item) => (
+              <Card
+                key={item.title}
+                variant="resource"
+                title={item.title}
+                description={item.description}
+                tag={item.tag}
+                icon={<LottieIcon src={item.lottie} />}
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Info Cards (InfoCard) */}
-      <section className="py-section-sm px-site bg-bg-primary">
+      {/* 5. Info Cards (InfoCard) */}
+      <section className="py-section-md px-site bg-bg-secondary">
         <div className="max-w-7xl mx-auto">
-          <div className="relative">
-            <ComponentLabel name="Card (info)" />
-            <div className="pt-6">
-              <SectionHeader eyebrow="Events" title="Upcoming Conferences" />
-              <div data-animate="stagger" className="space-y-6">
-                {infoCards.map((event) => (
-                  <Card
-                    key={event.title}
-                    variant="info"
-                    title={event.title}
-                    description={event.description}
-                    meta={event.meta}
-                    tags={event.tags}
-                    actionLabel={event.actionLabel}
-                    actionHref={event.actionHref}
-                  />
-                ))}
-              </div>
-            </div>
+          <ShowcaseLabel name="Card variant=&quot;info&quot;" />
+          <SectionHeader eyebrow="Events" title="Upcoming Conferences" />
+          <div data-animate="stagger" className="space-y-6">
+            {infoCards.map((event) => (
+              <Card
+                key={event.title}
+                variant="info"
+                title={event.title}
+                description={event.description}
+                meta={event.meta}
+                tags={event.tags}
+                actionLabel={event.actionLabel}
+                actionHref={event.actionHref}
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* StatsGrid */}
-      <section className="py-section-sm px-site bg-bg-secondary">
+      {/* 6. Stats */}
+      <section className="py-section-md px-site bg-bg-primary">
         <div className="max-w-7xl mx-auto">
-          <div className="relative">
-            <ComponentLabel name="StatsGrid" />
-            <div className="pt-6">
-              <SectionHeader eyebrow="By the Numbers" title="Conference at a Glance" />
-              <StatsGrid stats={stats} />
-            </div>
-          </div>
+          <ShowcaseLabel name="StatsGrid" />
+          <SectionHeader eyebrow="By the Numbers" title="Conference at a Glance" />
+          <StatsGrid stats={stats} />
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-section-sm px-site bg-bg-primary">
+      {/* 7. Timeline */}
+      <section className="py-section-md px-site bg-bg-secondary">
         <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            <ComponentLabel name="Timeline" />
-            <div className="pt-6">
-              <SectionHeader
-                eyebrow="San Francisco · May 7"
-                title="Schedule at a Glance"
-                align="center"
-              />
-              <Timeline items={scheduleItems} />
-            </div>
-          </div>
+          <ShowcaseLabel name="Timeline" />
+          <SectionHeader
+            eyebrow="San Francisco · May 7"
+            title="Schedule at a Glance"
+            align="center"
+          />
+          <Timeline items={scheduleItems} />
         </div>
       </section>
 
-      {/* TestimonialCard */}
-      <section className="py-section-sm px-site bg-bg-secondary">
+      {/* 8. Testimonials */}
+      <section className="py-section-md px-site bg-bg-primary">
         <div className="max-w-7xl mx-auto">
-          <div className="relative">
-            <ComponentLabel name="TestimonialCard" />
-            <div className="pt-6">
-              <SectionHeader eyebrow="What People Say" title="Testimonials" />
-              <div data-animate="stagger" className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {testimonials.map((t) => (
-                  <TestimonialCard
-                    key={t.author}
-                    quote={t.quote}
-                    author={t.author}
-                    role={t.role}
-                    company={t.company}
-                    variant="column"
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <ShowcaseLabel name="TestimonialCard" />
+          <SectionHeader eyebrow="What People Say" title="Testimonials" />
 
-      {/* FAQ */}
-      <section className="py-section-sm px-site bg-bg-primary">
-        <div className="max-w-3xl mx-auto">
-          <div className="relative">
-            <ComponentLabel name="FAQ" />
-            <div className="pt-6">
-              <SectionHeader
-                eyebrow="Questions"
-                title="Frequently Asked Questions"
+          {/* Featured row testimonial */}
+          <div data-animate="scroll" className="mb-8">
+            <TestimonialCard
+              quote={testimonials[0].quote}
+              author={testimonials[0].author}
+              role={testimonials[0].role}
+              company={testimonials[0].company}
+              variant="row"
+            />
+          </div>
+
+          {/* Column grid */}
+          <div data-animate="stagger" className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t) => (
+              <TestimonialCard
+                key={t.author}
+                quote={t.quote}
+                author={t.author}
+                role={t.role}
+                company={t.company}
+                variant="column"
               />
-              <FAQ items={faqItems} />
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTABanner — Light */}
-      <div className="relative">
-        <ComponentLabel name="CTABanner (light)" />
+      {/* 9. FAQ */}
+      <section className="py-section-md px-site bg-bg-secondary">
+        <div className="max-w-3xl mx-auto">
+          <ShowcaseLabel name="FAQ" />
+          <SectionHeader
+            eyebrow="Questions"
+            title="Frequently Asked Questions"
+          />
+          <FAQ items={faqItems} />
+        </div>
+      </section>
+
+      {/* 10. CTA Banner — Light */}
+      <section className="bg-bg-primary">
+        <div className="max-w-7xl mx-auto px-site pt-section-md">
+          <ShowcaseLabel name="CTABanner variant=&quot;light&quot;" />
+        </div>
         <CTABanner
-          heading="Ready to Build with Claude?"
-          description="Register now for Code with Claude 2026 and join the developer community pushing the boundaries of AI-assisted development."
+          heading="Ready to Build?"
+          description="Join thousands of developers building the future with Claude. Register for Code with Claude 2026 today."
           primaryAction={{ label: "Register Now", href: "#register" }}
-          secondaryAction={{ label: "View Events", href: "#events" }}
+          secondaryAction={{ label: "Learn More", href: "#about" }}
           variant="light"
         />
-      </div>
+      </section>
 
-      {/* CTABanner — Dark */}
-      <div className="relative">
-        <ComponentLabel name="CTABanner (dark)" />
+      {/* 10b. CTA Banner — Dark */}
+      <section>
+        <div className="max-w-7xl mx-auto px-site pt-8">
+          <ShowcaseLabel name="CTABanner variant=&quot;dark&quot;" />
+        </div>
         <CTABanner
-          heading="Don't Miss Out"
+          heading="Register for Code with Claude"
           description="Limited spots available for the SF flagship event. Secure your place today."
-          primaryAction={{ label: "Register for SF", href: "#register" }}
+          primaryAction={{ label: "Register Now", href: "#register" }}
           variant="dark"
         />
-      </div>
+      </section>
 
-      {/* VideoEmbed */}
-      <section className="py-section-sm px-site bg-bg-secondary">
+      {/* 11. Video Embed */}
+      <section className="py-section-md px-site bg-bg-secondary">
         <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            <ComponentLabel name="VideoEmbed" />
-            <div className="pt-6">
-              <SectionHeader eyebrow="Watch" title="Featured Video" />
-              <VideoEmbed videoId="dQw4w9WgXcQ" title="Code with Claude 2026 Preview" />
-            </div>
-          </div>
+          <ShowcaseLabel name="VideoEmbed" />
+          <SectionHeader eyebrow="Watch" title="Conference Highlights" />
+          <VideoEmbed videoId="dQw4w9WgXcQ" title="Conference Highlights" />
         </div>
       </section>
 
-      {/* Buttons Showcase */}
-      <section className="py-section-sm px-site bg-bg-primary">
+      {/* 12. Buttons */}
+      <section className="py-section-md px-site bg-bg-primary">
         <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            <ComponentLabel name="Button" />
-            <div className="pt-6">
-              <SectionHeader eyebrow="Interactions" title="Button Variants" />
-              <div className="space-y-8">
-                {/* Variants */}
-                <div>
-                  <p className="text-label text-fg-quaternary mb-4">Variants</p>
-                  <div className="flex flex-wrap items-center gap-3">
-                    <Button variant="primary" size="md" iconFormat="trailing" href="#">
-                      Primary
-                    </Button>
-                    <Button variant="secondary" size="md" iconFormat="trailing" href="#">
-                      Secondary
-                    </Button>
-                    <Button variant="tertiary" size="md" iconFormat="none" href="#">
-                      Tertiary
-                    </Button>
-                    <Button variant="clay" size="md" iconFormat="trailing" href="#">
-                      Clay
-                    </Button>
-                  </div>
-                </div>
-                {/* Sizes */}
-                <div>
-                  <p className="text-label text-fg-quaternary mb-4">Sizes</p>
-                  <div className="flex flex-wrap items-center gap-3">
-                    <Button variant="primary" size="sm" iconFormat="trailing" href="#">
-                      Small
-                    </Button>
-                    <Button variant="primary" size="md" iconFormat="trailing" href="#">
-                      Medium
-                    </Button>
-                    <Button variant="primary" size="lg" iconFormat="trailing" href="#">
-                      Large
-                    </Button>
-                  </div>
-                </div>
-                {/* Icon formats */}
-                <div>
-                  <p className="text-label text-fg-quaternary mb-4">Icon Formats</p>
-                  <div className="flex flex-wrap items-center gap-3">
-                    <Button variant="secondary" size="md" iconFormat="leading" href="#">
-                      Leading
-                    </Button>
-                    <Button variant="secondary" size="md" iconFormat="trailing" href="#">
-                      Trailing
-                    </Button>
-                    <Button variant="secondary" size="md" iconFormat="none" href="#">
-                      No Icon
-                    </Button>
-                    <Button variant="secondary" size="md" iconFormat="icon-only" href="#">
-                      Icon
-                    </Button>
-                  </div>
-                </div>
+          <ShowcaseLabel name="Button" />
+          <SectionHeader eyebrow="Interactions" title="Button Variants & Sizes" />
+          <div className="space-y-10">
+            {/* All variants at md size */}
+            <div>
+              <p className="text-label text-fg-quaternary mb-4">Variants</p>
+              <div className="flex flex-wrap items-center gap-3">
+                {buttonVariants.map((variant) => (
+                  <Button key={variant} variant={variant} size="md" iconFormat="trailing" href="#">
+                    {variant.charAt(0).toUpperCase() + variant.slice(1)}
+                  </Button>
+                ))}
+              </div>
+            </div>
+            {/* All sizes at primary variant */}
+            <div>
+              <p className="text-label text-fg-quaternary mb-4">Sizes</p>
+              <div className="flex flex-wrap items-center gap-3">
+                {buttonSizes.map((size) => (
+                  <Button key={size} variant="primary" size={size} iconFormat="trailing" href="#">
+                    {size.toUpperCase()}
+                  </Button>
+                ))}
+              </div>
+            </div>
+            {/* Icon formats */}
+            <div>
+              <p className="text-label text-fg-quaternary mb-4">Icon Formats</p>
+              <div className="flex flex-wrap items-center gap-3">
+                <Button variant="secondary" size="md" iconFormat="leading" href="#">
+                  Leading
+                </Button>
+                <Button variant="secondary" size="md" iconFormat="trailing" href="#">
+                  Trailing
+                </Button>
+                <Button variant="secondary" size="md" iconFormat="none" href="#">
+                  No Icon
+                </Button>
+                <Button variant="secondary" size="md" iconFormat="icon-only" href="#">
+                  Go
+                </Button>
+              </div>
+            </div>
+            {/* Full grid: variants x sizes */}
+            <div>
+              <p className="text-label text-fg-quaternary mb-4">Full Grid</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {buttonVariants.map((variant) =>
+                  buttonSizes.map((size) => (
+                    <div key={`${variant}-${size}`} className="flex items-center gap-3">
+                      <Button variant={variant} size={size} iconFormat="trailing" href="#">
+                        {variant} {size}
+                      </Button>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           </div>
