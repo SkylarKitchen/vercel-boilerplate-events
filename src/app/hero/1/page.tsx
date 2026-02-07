@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "@/components/Button";
 import CountdownClient from "../_components/CountdownClient";
 
@@ -5,20 +6,26 @@ export default function Hero1() {
   return (
     <main className="min-h-screen flex flex-col bg-bg-secondary">
       {/* Main hero area */}
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1fr_40%] pt-16">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1fr_40%]">
         {/* Left — Branding + Countdown */}
-        <div className="flex flex-col justify-between px-site py-12 lg:py-16">
-          {/* Top bar */}
-          <div data-animate="hero" data-delay="0">
-            <p className="text-label text-fg-quaternary">
-              Code with Claude
+        <div className="flex flex-col justify-between px-site py-10 lg:py-14">
+          {/* Top bar: serif title left, mono date right */}
+          <div
+            className="flex items-start justify-between"
+            data-animate="hero"
+            data-delay="0"
+          >
+            <p className="text-h4 font-serif italic text-fg-primary">
+              Code w/ Claude
             </p>
-            <p className="text-body-3 text-fg-tertiary mt-1">
-              May 7, 2026 &middot; San Francisco
+            <p className="font-mono text-sm text-fg-secondary text-right">
+              May 7, 2026
+              <br />
+              San Francisco, California
             </p>
           </div>
 
-          {/* Countdown */}
+          {/* Countdown — massive stacked numbers */}
           <div className="my-8 lg:my-0">
             <CountdownClient variant="stacked" />
           </div>
@@ -29,78 +36,70 @@ export default function Hero1() {
             data-animate="hero"
             data-delay="0.6"
           >
-            <Button variant="clay" size="lg" href="#register">
-              Register Now
-            </Button>
-            <Button variant="tertiary" size="lg" href="#schedule">
-              View Schedule
+            <Button variant="primary" size="lg" href="#register" iconFormat="none">
+              Apply to attend
             </Button>
           </div>
         </div>
 
-        {/* Right — Halftone pattern panel */}
+        {/* Right — Dark panel with subtle shapes (substitute for halftone photo) */}
         <div
-          className="relative hidden lg:block overflow-hidden"
+          className="relative hidden lg:block overflow-hidden bg-bg-inverse"
           data-animate="hero"
           data-delay="0.3"
         >
-          {/* Dot-halftone pattern via CSS */}
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle, var(--color-fg-primary) 1px, transparent 1px)",
-              backgroundSize: "12px 12px",
-              opacity: 0.08,
-            }}
+          {/* CWC shape — large, bleeding off top-right */}
+          <Image
+            src="/shapes/cwc.svg"
+            alt=""
+            width={500}
+            height={500}
+            className="absolute -top-16 -right-8 w-[380px] opacity-[0.08] brightness-0 invert"
           />
-          {/* Organic mask shape */}
-          <div
-            className="absolute inset-0 bg-bg-tertiary"
-            style={{
-              maskImage:
-                "radial-gradient(ellipse 80% 70% at 60% 50%, black 30%, transparent 70%)",
-              WebkitMaskImage:
-                "radial-gradient(ellipse 80% 70% at 60% 50%, black 30%, transparent 70%)",
-            }}
-          >
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle, var(--color-fg-primary) 1.5px, transparent 1.5px)",
-                backgroundSize: "16px 16px",
-                opacity: 0.12,
-              }}
-            />
-          </div>
-          {/* Decorative brand shape */}
-          <img
+          {/* Star shape — bottom area */}
+          <Image
             src="/shapes/star.svg"
             alt=""
-            className="absolute bottom-16 right-12 w-32 h-32 opacity-[0.06] dark:invert"
+            width={400}
+            height={400}
+            className="absolute -bottom-12 -left-8 w-[300px] opacity-[0.06] brightness-0 invert"
+          />
+          {/* Grid texture — center */}
+          <Image
+            src="/shapes/grid.svg"
+            alt=""
+            width={200}
+            height={200}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] opacity-[0.04] brightness-0 invert"
           />
         </div>
       </div>
 
       {/* Dark bottom strip */}
       <div className="bg-bg-inverse">
-        <div className="max-w-7xl mx-auto px-site py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-body-3 text-fg-inverse/70">
-            Join 700+ developers at SVN West, San Francisco
+        <div className="px-site py-5 flex items-center justify-between">
+          <p className="text-label text-fg-inverse/70 font-medium tracking-wide uppercase">
+            By Anthropic
           </p>
-          <div className="flex items-center gap-3">
-            <Button variant="clay" size="sm" href="#register">
-              Get Tickets
-            </Button>
-            <Button
-              variant="tertiary"
-              size="sm"
-              href="#about"
-              className="!bg-transparent !text-fg-inverse/70 hover:!text-fg-inverse border border-fg-inverse/20"
+          <div className="flex items-center gap-6">
+            <a
+              href="#faq"
+              className="text-sm text-fg-inverse/50 underline hover:text-fg-inverse/80 transition-colors"
             >
-              Learn More
-            </Button>
+              FAQs
+            </a>
+            <a
+              href="#terms"
+              className="text-sm text-fg-inverse/50 underline hover:text-fg-inverse/80 transition-colors"
+            >
+              Terms of service
+            </a>
+            <a
+              href="#privacy"
+              className="text-sm text-fg-inverse/50 underline hover:text-fg-inverse/80 transition-colors"
+            >
+              Privacy policy
+            </a>
           </div>
         </div>
       </div>

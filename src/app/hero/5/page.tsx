@@ -2,10 +2,10 @@ import Image from "next/image";
 import Button from "@/components/Button";
 
 const words = [
-  { text: "Code", muted: false },
-  { text: "with", muted: true },
-  { text: "Claude", muted: false },
-  { text: "2026", muted: false },
+  { text: "Code" },
+  { text: "with" },
+  { text: "Claude" },
+  { text: "2026" },
 ];
 
 export default function Hero5() {
@@ -36,25 +36,23 @@ export default function Hero5() {
 
       {/* Date — top right */}
       <div
-        className="absolute top-24 right-site"
+        className="absolute top-24 px-site right-0"
         data-animate="hero"
         data-delay="0.5"
       >
-        <p className="font-mono text-sm text-fg-quaternary tracking-wide text-right">
+        <p className="font-mono text-sm text-fg-secondary tracking-wide text-right">
           MAY 7, 2026
           <br />
           SAN FRANCISCO
         </p>
       </div>
 
-      {/* Stacked typography */}
+      {/* Stacked typography — all words use fg-primary */}
       <div className="px-site">
         {words.map((word, i) => (
           <div key={word.text} className="overflow-hidden">
             <p
-              className={`font-serif font-medium leading-[0.85] tracking-tight ${
-                word.muted ? "text-fg-quaternary" : "text-fg-primary"
-              }`}
+              className="font-serif font-medium leading-[0.85] tracking-tight text-fg-primary"
               style={{ fontSize: "clamp(4rem, 15vw, 14rem)" }}
               data-animate="hero"
               data-delay={String(0.1 + i * 0.12)}
@@ -67,20 +65,20 @@ export default function Hero5() {
 
       {/* Bottom-left: Attribution */}
       <div
-        className="absolute bottom-8 left-site"
+        className="absolute bottom-8 px-site left-0"
         data-animate="hero"
         data-delay="0.7"
       >
-        <p className="text-label text-fg-quaternary">By Anthropic</p>
+        <p className="text-label text-fg-tertiary">By Anthropic</p>
       </div>
 
       {/* Bottom-right: CTA */}
       <div
-        className="absolute bottom-8 right-site"
+        className="absolute bottom-8 px-site right-0"
         data-animate="hero"
         data-delay="0.65"
       >
-        <Button variant="clay" size="lg" href="#register">
+        <Button variant="primary" size="lg" href="#register">
           Register Now
         </Button>
       </div>

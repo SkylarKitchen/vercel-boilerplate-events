@@ -4,22 +4,25 @@ import CountdownClient from "../_components/CountdownClient";
 
 export default function Hero2() {
   return (
-    <main className="min-h-screen flex flex-col bg-bg-primary">
+    <main className="min-h-screen flex flex-col bg-bg-secondary">
       {/* Main grid */}
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1fr_38%] pt-16">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1fr_38%]">
         {/* Left — Editorial content */}
-        <div className="flex flex-col justify-between px-site py-12 lg:py-16">
-          {/* Top: Logo bar */}
+        <div className="flex flex-col justify-between px-site py-10 lg:py-14">
+          {/* Top: Logo + Date */}
           <div
-            className="flex items-center gap-3"
+            className="flex items-start justify-between"
             data-animate="hero"
             data-delay="0"
           >
-            <span className="text-label text-accent-clay font-medium">
-              Anthropic Presents
-            </span>
-            <span className="w-px h-4 bg-border-secondary" />
-            <span className="text-label text-fg-quaternary">2026</span>
+            <p className="text-h4 font-serif italic text-fg-primary">
+              Code w/ Claude
+            </p>
+            <p className="font-mono text-sm text-fg-secondary text-right">
+              May 7, 2026
+              <br />
+              San Francisco, California
+            </p>
           </div>
 
           {/* Middle: Headline + body + CTA */}
@@ -28,108 +31,109 @@ export default function Hero2() {
               className="text-display-1 font-serif text-fg-primary mb-6"
               data-animate="hero-heading"
             >
-              Code with Claude
+              Join us for the first Claude Developer Conference by Anthropic.
             </h1>
             <p
-              className="text-body-large-1 text-fg-secondary mb-8 max-w-md"
+              className="text-body-1 text-fg-secondary mb-8 max-w-md"
               data-animate="hero"
               data-delay="0.25"
             >
-              The developer conference for building the future with AI.
-              Keynotes, workshops, and hands-on sessions across three
-              cities.
+              Meet with our engineering team, get hands-on with product, and
+              connect with other developers passionate about Claude.
             </p>
-            <div
-              className="flex flex-wrap items-center gap-3"
-              data-animate="hero"
-              data-delay="0.35"
-            >
-              <Button variant="clay" size="lg" href="#register">
-                Register Now
-              </Button>
-              <Button variant="secondary" size="lg" href="/sessions">
-                Browse Sessions
+            <div data-animate="hero" data-delay="0.35">
+              <Button variant="primary" size="md" href="#register" iconFormat="none">
+                Apply to attend
               </Button>
             </div>
           </div>
 
           {/* Bottom: Countdown row */}
           <div className="max-w-md">
-            <p
-              className="text-label text-fg-quaternary mb-4"
-              data-animate="hero"
-              data-delay="0.2"
-            >
-              San Francisco &middot; May 7, 2026
-            </p>
             <CountdownClient variant="inline" />
           </div>
         </div>
 
-        {/* Right — Decorative panel */}
+        {/* Right — Decorative star pattern panel */}
         <div
-          className="relative hidden lg:flex flex-col items-center justify-center gap-16 overflow-hidden bg-bg-tertiary"
+          className="relative hidden lg:flex flex-col overflow-hidden bg-bg-secondary border-l border-border-secondary"
           data-animate="hero"
           data-delay="0.2"
         >
-          {/* Dot grid background */}
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle, var(--color-fg-primary) 0.8px, transparent 0.8px)",
-              backgroundSize: "20px 20px",
-              opacity: 0.06,
-            }}
-          />
+          {/* Top dense grid of small stars */}
+          <div className="flex-[3] grid grid-cols-4 grid-rows-4 p-2">
+            {Array.from({ length: 16 }).map((_, i) => (
+              <div key={`top-${i}`} className="flex items-center justify-center p-1">
+                <Image
+                  src="/shapes/star.svg"
+                  alt=""
+                  width={32}
+                  height={32}
+                  className="w-7 h-7"
+                />
+              </div>
+            ))}
+          </div>
 
-          {/* Stacked shapes */}
-          <Image
-            src="/shapes/star.svg"
-            alt=""
-            width={120}
-            height={120}
-            className="relative opacity-[0.08] dark:invert"
-          />
-          <Image
-            src="/shapes/steps.svg"
-            alt=""
-            width={140}
-            height={140}
-            className="relative opacity-[0.08] dark:invert"
-          />
-          <Image
-            src="/shapes/grid.svg"
-            alt=""
-            width={100}
-            height={100}
-            className="relative opacity-[0.08] dark:invert"
-          />
+          {/* Middle: 2 large centered stars */}
+          <div className="flex-[4] flex flex-col items-center justify-center gap-6 px-8">
+            <Image
+              src="/shapes/star.svg"
+              alt=""
+              width={160}
+              height={160}
+              className="w-36 h-36"
+            />
+            <Image
+              src="/shapes/star.svg"
+              alt=""
+              width={160}
+              height={160}
+              className="w-36 h-36"
+            />
+          </div>
+
+          {/* Bottom dense grid of small stars */}
+          <div className="flex-[3] grid grid-cols-4 grid-rows-4 p-2">
+            {Array.from({ length: 16 }).map((_, i) => (
+              <div key={`bot-${i}`} className="flex items-center justify-center p-1">
+                <Image
+                  src="/shapes/star.svg"
+                  alt=""
+                  width={32}
+                  height={32}
+                  className="w-7 h-7"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Mini footer bar */}
-      <div className="border-t border-border-tertiary">
-        <div className="max-w-7xl mx-auto px-site py-4 flex items-center justify-between">
-          <p className="text-caption text-fg-quaternary">By Anthropic</p>
+      {/* Footer bar */}
+      <div className="border-t border-border-secondary">
+        <div className="px-site py-4 flex items-center justify-between">
+          <p className="text-label text-fg-primary font-medium tracking-wide uppercase">
+            By Anthropic
+          </p>
           <div className="flex items-center gap-6">
             <a
-              href="#schedule"
-              className="text-caption text-fg-quaternary hover:text-fg-primary transition-colors"
+              href="#faq"
+              className="text-sm text-fg-secondary underline hover:text-fg-primary transition-colors"
             >
-              Schedule
+              FAQs
             </a>
             <a
-              href="#locations"
-              className="text-caption text-fg-quaternary hover:text-fg-primary transition-colors"
+              href="#terms"
+              className="text-sm text-fg-secondary underline hover:text-fg-primary transition-colors"
             >
-              Locations
+              Terms of service
             </a>
             <a
-              href="#about"
-              className="text-caption text-fg-quaternary hover:text-fg-primary transition-colors"
+              href="#privacy"
+              className="text-sm text-fg-secondary underline hover:text-fg-primary transition-colors"
             >
-              About
+              Privacy policy
             </a>
           </div>
         </div>

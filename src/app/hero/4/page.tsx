@@ -14,7 +14,7 @@ export default function Hero4() {
     <main>
       {/* Hero — always dark */}
       <section className="relative min-h-screen flex flex-col items-center justify-center bg-bg-inverse pt-16 overflow-hidden">
-        {/* Animated radial glow */}
+        {/* Animated radial glow (ambient, not UI chrome) */}
         <HeroGradient />
 
         {/* Low-opacity decorative shapes */}
@@ -36,7 +36,7 @@ export default function Hero4() {
         {/* Content */}
         <div className="relative z-10 text-center px-site max-w-3xl">
           <p
-            className="text-label text-accent-clay font-medium mb-6"
+            className="text-label text-fg-inverse/50 font-medium mb-6 uppercase tracking-[0.2em]"
             data-animate="hero"
             data-delay="0"
           >
@@ -51,7 +51,7 @@ export default function Hero4() {
           </h1>
 
           <p
-            className="text-body-large-1 text-fg-inverse/70 mb-4 font-mono text-sm tracking-wide"
+            className="text-fg-inverse/70 mb-4 font-mono text-sm tracking-wide"
             data-animate="hero"
             data-delay="0.3"
           >
@@ -72,14 +72,19 @@ export default function Hero4() {
             data-animate="hero"
             data-delay="0.5"
           >
-            <Button variant="clay" size="lg" href="#register">
+            <Button
+              variant="tertiary"
+              size="lg"
+              href="#register"
+              className="!bg-transparent text-fg-inverse border border-fg-inverse/30 hover:border-fg-inverse/60"
+            >
               Register Now
             </Button>
             <Button
               variant="tertiary"
               size="lg"
               href="#schedule"
-              className="!bg-transparent !text-fg-inverse/80 hover:!text-fg-inverse border border-fg-inverse/20"
+              className="!bg-transparent text-fg-inverse/70 hover:text-fg-inverse border border-fg-inverse/15 hover:border-fg-inverse/40"
             >
               View Schedule
             </Button>

@@ -48,19 +48,15 @@ export default function CountdownClient({ variant }: CountdownProps) {
         {units.map((unit, i) => (
           <div
             key={unit.label}
-            className="flex items-baseline gap-4"
             data-animate="hero"
             data-delay={String(0.1 + i * 0.12)}
           >
-            <span
-              className="font-sans font-extrabold uppercase tabular-nums text-fg-primary"
-              style={{ fontSize: "clamp(3rem, 8vw, 7rem)", lineHeight: 1.05 }}
+            <p
+              className="font-sans font-black tabular-nums text-fg-primary"
+              style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)", lineHeight: 1.1 }}
             >
-              {pad(unit.value)}
-            </span>
-            <span className="text-body-3 text-fg-quaternary uppercase tracking-[0.2em]">
-              {unit.label}
-            </span>
+              {unit.value} {unit.label.toLowerCase()}
+            </p>
           </div>
         ))}
       </div>
