@@ -12,6 +12,11 @@ import Timeline from "@/components/Timeline";
 import Card from "@/components/Card";
 import Button from "@/components/Button";
 import LottieIcon from "@/components/LottieIcon";
+import FeatureList from "@/components/FeatureList";
+import ColumnFeatures from "@/components/ColumnFeatures";
+import SplitSection from "@/components/SplitSection";
+import CardLink from "@/components/CardLink";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata = { title: "Components — Code with Claude 2026" };
 
@@ -160,6 +165,60 @@ const infoCards = [
     actionLabel: "Join Waitlist",
     actionHref: "#register",
   },
+];
+
+const featureListItems = [
+  {
+    icon: <LottieIcon src="/documents/Object-Desktop.lottie" />,
+    title: "Build together in real time",
+    description:
+      "Claude builds on your ideas, expands on your logic, and simplifies complexity one step at a time.",
+  },
+  {
+    icon: <LottieIcon src="/documents/Node-Web.lottie" />,
+    title: "Works where you work",
+    description:
+      "Lives right inside your terminal — no context switching. Integrates with VS Code and JetBrains IDEs.",
+  },
+  {
+    icon: <LottieIcon src="/documents/Hand-Shapes.lottie" />,
+    title: "You're in control",
+    description:
+      "Never modifies your files without explicit approval. Adapts to your coding standards and patterns.",
+  },
+];
+
+const columnFeatureItems = [
+  {
+    icon: <LottieIcon src="/documents/Object-Megaphone.lottie" />,
+    title: "Intelligence for complex workflows",
+    description:
+      "Enhanced performance for development workflows, from code review to architecture decisions. Claude understands context and automates complex tasks while maintaining accuracy.",
+  },
+  {
+    icon: <LottieIcon src="/documents/Object-Books.lottie" />,
+    title: "Built with safety at its core",
+    description:
+      "Designed with safety and responsible deployment as foundational principles. Claude provides transparent reasoning you can trust in high-stakes decisions.",
+  },
+  {
+    icon: <LottieIcon src="/documents/Object-Confetti.lottie" />,
+    title: "Secure, compliant, and accessible",
+    description:
+      "Deploy using the security frameworks your team already relies on. Access advanced AI capabilities without compromising compliance requirements.",
+  },
+];
+
+const cardLinkItems = [
+  { title: "See how other companies are building AI agents with Claude", category: "Customer stories", href: "#" },
+  { title: "Building effective agents", category: "Engineering at Anthropic", href: "#" },
+  { title: "Get started with our API", category: "Developer docs", href: "#" },
+];
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Events", href: "#events" },
+  { label: "San Francisco" },
 ];
 
 const buttonVariants = ["primary", "secondary", "tertiary", "clay"] as const;
@@ -361,7 +420,82 @@ export default function ComponentsPage() {
         </div>
       </section>
 
-      {/* 12. Buttons */}
+      {/* 12. Breadcrumb */}
+      <section className="py-section-md px-site bg-bg-primary">
+        <div className="max-w-7xl mx-auto">
+          <ShowcaseLabel name="Breadcrumb" />
+          <SectionHeader eyebrow="Navigation" title="Breadcrumb Trail" />
+          <div className="space-y-6">
+            <Breadcrumb items={breadcrumbItems} />
+            <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Components" }]} />
+          </div>
+        </div>
+      </section>
+
+      {/* 13. Feature List */}
+      <section className="py-section-md px-site bg-bg-secondary">
+        <div className="max-w-4xl mx-auto">
+          <ShowcaseLabel name="FeatureList" />
+          <SectionHeader eyebrow="Capabilities" title="What Claude Code Can Do" />
+          <FeatureList items={featureListItems} />
+        </div>
+      </section>
+
+      {/* 14. Column Features */}
+      <section className="py-section-md px-site bg-bg-primary">
+        <div className="max-w-7xl mx-auto">
+          <ShowcaseLabel name="ColumnFeatures" />
+          <SectionHeader eyebrow="Why Attend" title="Why Teams Choose Code with Claude" />
+          <ColumnFeatures features={columnFeatureItems} />
+        </div>
+      </section>
+
+      {/* 15. Split Section */}
+      <section className="py-section-md px-site bg-bg-secondary">
+        <div className="max-w-7xl mx-auto">
+          <ShowcaseLabel name="SplitSection" />
+          <SectionHeader eyebrow="Layout" title="Split Content Sections" />
+          <div className="space-y-16">
+            <SplitSection
+              imageSrc="/placeholder-event.svg"
+              imageAlt="Collaborate with Claude on coding tasks"
+              eyebrow="Claude Code"
+              title="Collaborate with Claude on coding tasks"
+              description="Developers interact with Claude directly from their terminal — delegating tasks from code migrations to bug fixes."
+              action={{ label: "Learn more", href: "#" }}
+            />
+            <SplitSection
+              imageSrc="/placeholder-event.svg"
+              imageAlt="Our commitment to responsible AI"
+              eyebrow="Responsible AI"
+              title="Our commitment to responsible AI"
+              description="We develop Claude with powerful safeguards to ensure it remains a beneficial tool for developers, teams, and organizations."
+              action={{ label: "Read more", href: "#" }}
+              imagePosition="right"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 16. Card Links */}
+      <section className="py-section-md px-site bg-bg-primary">
+        <div className="max-w-7xl mx-auto">
+          <ShowcaseLabel name="CardLink" />
+          <SectionHeader eyebrow="Resources" title="Explore More" />
+          <div data-animate="stagger" className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {cardLinkItems.map((item) => (
+              <CardLink
+                key={item.title}
+                title={item.title}
+                category={item.category}
+                href={item.href}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 17. Buttons */}
       <section className="py-section-md px-site bg-bg-primary">
         <div className="max-w-4xl mx-auto">
           <ShowcaseLabel name="Button" />
