@@ -16,6 +16,7 @@ const heroes = [
   { id: 13, name: "Ticket Stub", description: "Physical conference ticket card on warm oat background with perforation detail" },
   { id: 14, name: "Olive Brutalist", description: "Heavy borders, stacked color blocks, and raw industrial typography with olive panel" },
   { id: 15, name: "Heather Layers", description: "Overlapping translucent panels on heather with floating content card and depth" },
+  { id: 16, name: "Organic Blob", description: "Typography-forward layout with massive organic white blob shape bleeding off the upper-right edge" },
 ];
 
 export default function HeroIndex() {
@@ -36,7 +37,7 @@ export default function HeroIndex() {
           data-animate="hero"
           data-delay="0.15"
         >
-          Fifteen distinct hero designs for the Code with Claude 2026 conference
+          Sixteen distinct hero designs for the Code with Claude 2026 conference
           landing page. Each explores a different visual direction while using
           the same design token system.
         </p>
