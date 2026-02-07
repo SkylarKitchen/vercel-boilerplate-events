@@ -12,8 +12,8 @@ export default function Hero3() {
           data-animate="hero"
           data-delay="0"
         >
-          <p className="text-h3 font-serif italic text-fg-primary">
-            w/ Claude
+          <p className="text-h4 font-serif italic text-fg-primary">
+            Code w/ Claude
           </p>
           <p className="font-mono text-sm text-fg-secondary text-right">
             May 7, 2026

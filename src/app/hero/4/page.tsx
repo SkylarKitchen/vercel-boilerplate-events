@@ -23,14 +23,14 @@ export default function Hero4() {
           alt=""
           width={180}
           height={180}
-          className="absolute top-24 left-[10%] opacity-[0.03] brightness-0 invert"
+          className="absolute top-24 left-[10%] opacity-[0.06] brightness-0 invert"
         />
         <Image
           src="/shapes/carrot.svg"
           alt=""
           width={120}
           height={120}
-          className="absolute bottom-32 right-[12%] opacity-[0.03] brightness-0 invert"
+          className="absolute bottom-32 right-[12%] opacity-[0.06] brightness-0 invert"
         />
 
         {/* Content */}
@@ -73,18 +73,17 @@ export default function Hero4() {
             data-delay="0.5"
           >
             <Button
-              variant="tertiary"
+              variant="ghost"
               size="lg"
               href="#register"
-              className="!bg-transparent text-fg-inverse border border-fg-inverse/30 hover:border-fg-inverse/60"
             >
               Register Now
             </Button>
             <Button
-              variant="tertiary"
+              variant="ghost"
               size="lg"
               href="#schedule"
-              className="!bg-transparent text-fg-inverse/70 hover:text-fg-inverse border border-fg-inverse/15 hover:border-fg-inverse/40"
+              className="text-fg-inverse/70 hover:text-fg-inverse border-fg-inverse/15 hover:border-fg-inverse/40"
             >
               View Schedule
             </Button>
@@ -93,8 +92,8 @@ export default function Hero4() {
       </section>
 
       {/* Stats section — also dark */}
-      <section className="bg-bg-inverse border-t border-fg-inverse/10">
-        <div className="max-w-4xl mx-auto px-site py-section-sm [&_p]:text-fg-inverse">
+      <section className="bg-bg-inverse">
+        <div className="max-w-4xl mx-auto px-site pb-section-sm pt-12 [&_p]:text-fg-inverse">
           <StatsGrid stats={stats} />
         </div>
       </section>

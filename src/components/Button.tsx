@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-type ButtonVariant = "primary" | "secondary" | "tertiary" | "clay";
+type ButtonVariant = "primary" | "secondary" | "tertiary" | "clay" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 type IconFormat = "trailing" | "leading" | "none" | "icon-only";
 
@@ -52,6 +52,11 @@ const variantStyles: Record<ButtonVariant, string> = {
     "bg-accent-clay-interactive text-white",
     "hover:shadow-[0_0_0_2px_var(--color-accent-clay-interactive)]",
     "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[color-mix(in_srgb,var(--color-accent-clay-interactive)_50%,transparent)]",
+  ].join(" "),
+  ghost: [
+    "bg-transparent text-fg-inverse border border-fg-inverse/30",
+    "hover:border-fg-inverse/60",
+    "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[color-mix(in_srgb,var(--color-fg-inverse)_50%,transparent)]",
   ].join(" "),
 };
 

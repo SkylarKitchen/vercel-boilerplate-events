@@ -34,7 +34,7 @@ export default function Hero2() {
               Join us for the first Claude Developer Conference by Anthropic.
             </h1>
             <p
-              className="text-body-1 text-fg-secondary mb-8 max-w-md"
+              className="text-body-1 text-fg-secondary mb-8"
               data-animate="hero"
               data-delay="0.25"
             >
@@ -56,7 +56,7 @@ export default function Hero2() {
 
         {/* Right — Decorative star pattern panel */}
         <div
-          className="relative hidden lg:flex flex-col overflow-hidden bg-bg-secondary border-l border-border-secondary"
+          className="relative hidden lg:flex flex-col overflow-hidden bg-bg-primary border-l border-border-secondary"
           data-animate="hero"
           data-delay="0.2"
         >
@@ -69,7 +69,7 @@ export default function Hero2() {
                   alt=""
                   width={32}
                   height={32}
-                  className="w-7 h-7"
+                  className={`w-7 h-7 ${i % 2 === 0 ? "opacity-80" : "opacity-100"}`}
                 />
               </div>
             ))}
@@ -80,16 +80,16 @@ export default function Hero2() {
             <Image
               src="/shapes/star.svg"
               alt=""
-              width={160}
-              height={160}
-              className="w-36 h-36"
+              width={192}
+              height={192}
+              className="w-44 h-44"
             />
             <Image
               src="/shapes/star.svg"
               alt=""
-              width={160}
-              height={160}
-              className="w-36 h-36"
+              width={192}
+              height={192}
+              className="w-44 h-44"
             />
           </div>
 
@@ -102,7 +102,7 @@ export default function Hero2() {
                   alt=""
                   width={32}
                   height={32}
-                  className="w-7 h-7"
+                  className={`w-7 h-7 ${i % 2 === 0 ? "opacity-80" : "opacity-100"}`}
                 />
               </div>
             ))}
