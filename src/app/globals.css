@@ -4,9 +4,9 @@
 
 @layer base {
   body {
-    --font-serif: var(--font-anthropic-serif), Georgia, serif;
-    --font-sans: var(--font-anthropic-sans), system-ui, -apple-system, sans-serif;
-    --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+    --font-serif: var(--font-anthropic-serif), Georgia, Times New Roman, Times, serif;
+    --font-sans: var(--font-anthropic-sans), system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: var(--font-jetbrains-mono), Menlo, Monaco, monospace;
     font-family: var(--font-sans);
     @apply text-fg-primary bg-bg-secondary;
   }
@@ -234,6 +234,94 @@
   --color-gray-950: #141413;
   --color-gray-1000: #000000;
 
+  /* Tertiary: Orange */
+  --color-orange-100: #FAEFEB;
+  --color-orange-200: #F5CBBC;
+  --color-orange-300: #F2A88F;
+  --color-orange-400: #ED8461;
+  --color-orange-500: #E86235;
+  --color-orange-600: #BA4C27;
+  --color-orange-700: #8C3619;
+  --color-orange-800: #5E230F;
+  --color-orange-900: #301107;
+
+  /* Tertiary: Yellow */
+  --color-yellow-100: #FAF3E8;
+  --color-yellow-200: #FAE1B9;
+  --color-yellow-300: #FACF89;
+  --color-yellow-400: #FABD5A;
+  --color-yellow-500: #FAA72A;
+  --color-yellow-600: #C77F1A;
+  --color-yellow-700: #965B0E;
+  --color-yellow-800: #633806;
+  --color-yellow-900: #301901;
+
+  /* Tertiary: Green */
+  --color-green-100: #F1F7E9;
+  --color-green-200: #D0E5B1;
+  --color-green-300: #AFD47D;
+  --color-green-400: #90BF4E;
+  --color-green-500: #76AD2A;
+  --color-green-600: #568C1C;
+  --color-green-700: #386910;
+  --color-green-800: #214708;
+  --color-green-900: #0E2402;
+
+  /* Tertiary: Aqua */
+  --color-aqua-100: #E9F7F2;
+  --color-aqua-200: #AEE5D3;
+  --color-aqua-300: #7AD6B7;
+  --color-aqua-400: #4DC49C;
+  --color-aqua-500: #24B283;
+  --color-aqua-600: #188F6B;
+  --color-aqua-700: #0E6B54;
+  --color-aqua-800: #07473B;
+  --color-aqua-900: #02211C;
+
+  /* Tertiary: Blue */
+  --color-blue-100: #EDF5FC;
+  --color-blue-200: #BAD7F5;
+  --color-blue-300: #86B8EB;
+  --color-blue-400: #599EE3;
+  --color-blue-500: #2C84DB;
+  --color-blue-600: #1B67B2;
+  --color-blue-700: #0F4B87;
+  --color-blue-800: #06325E;
+  --color-blue-900: #011A33;
+
+  /* Tertiary: Violet */
+  --color-violet-100: #F1F0FF;
+  --color-violet-200: #CAC6F5;
+  --color-violet-300: #A49EE8;
+  --color-violet-400: #827ADE;
+  --color-violet-500: #6258D1;
+  --color-violet-600: #4D44AB;
+  --color-violet-700: #383182;
+  --color-violet-800: #26215C;
+  --color-violet-900: #141133;
+
+  /* Tertiary: Magenta */
+  --color-magenta-100: #FCF0F4;
+  --color-magenta-200: #F5C6D6;
+  --color-magenta-300: #F0A1BB;
+  --color-magenta-400: #E87DA1;
+  --color-magenta-500: #E05A87;
+  --color-magenta-600: #B54369;
+  --color-magenta-700: #8A2D4C;
+  --color-magenta-800: #5E1C32;
+  --color-magenta-900: #2E0B17;
+
+  /* Tertiary: Red */
+  --color-red-100: #FCEDED;
+  --color-red-200: #F7C1C1;
+  --color-red-300: #F09595;
+  --color-red-400: #E86B6B;
+  --color-red-500: #E04343;
+  --color-red-600: #B53333;
+  --color-red-700: #8A2424;
+  --color-red-800: #5C1616;
+  --color-red-900: #300B0B;
+
   /* Dark theme tokens */
   --color-dark-bg-primary: #141413;
   --color-dark-bg-secondary: #1D1D1B;
@@ -262,10 +350,10 @@
   --radius-responsive-xl: clamp(1rem, 0.714rem + 1.429vw, 2rem);
   --radius-responsive-lg: clamp(1rem, 0.857rem + 0.714vw, 1.5rem);
 
-  /* Fonts */
-  --font-sans: var(--font-anthropic-sans), system-ui, -apple-system, sans-serif;
-  --font-serif: var(--font-anthropic-serif), Georgia, serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  /* Fonts (brand spec fallback stacks) */
+  --font-sans: var(--font-anthropic-sans), system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: var(--font-anthropic-serif), Georgia, Times New Roman, Times, serif;
+  --font-mono: var(--font-jetbrains-mono), Menlo, Monaco, monospace;
 
   /* Spacing — responsive section spaces */
   --spacing-section-sm: clamp(4rem, 3.429rem + 2.857vw, 6rem);
