@@ -31,7 +31,7 @@ const pluginResult = await esbuild.build({
   write: true,
   minify: false,
   sourcemap: false,
-  target: "es2020",
+  target: "es2017",
   // Figma provides these globals — don't bundle them
   external: [],
 });
