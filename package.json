@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "figma": "node figma-codegen-plugin/figma-to-hero.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
