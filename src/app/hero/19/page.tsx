@@ -23,7 +23,7 @@ const shapes = [
 
 export default function Hero19() {
   return (
-    <main className="relative min-h-screen bg-bg-secondary flex flex-col items-center justify-center overflow-hidden px-site py-16">
+    <main className="relative min-h-screen bg-bg-secondary flex flex-col items-center justify-center overflow-hidden px-site pt-20 pb-16">
       <h1 className="sr-only">Code with Claude 2026 — San Francisco</h1>
 
       {/* ─── Scattered decorative shapes ─── */}
@@ -58,16 +58,16 @@ export default function Hero19() {
         <img
           src="/shapes/star.svg"
           alt=""
-          width={300}
-          height={300}
-          className="mb-10 opacity-[0.07]"
+          width={200}
+          height={200}
+          className="mb-8 opacity-[0.07]"
           data-animate="hero"
           aria-hidden="true"
         />
 
         {/* Title */}
         <h2
-          className="font-serif text-fg-primary text-display-2 sm:text-display-1 leading-[1.05] mb-5"
+          className="font-serif text-fg-primary text-display-2 sm:text-display-1 leading-[1.05] mb-4"
           data-animate="hero-heading"
         >
           Claude Developer Conference
@@ -75,7 +75,7 @@ export default function Hero19() {
 
         {/* Description */}
         <p
-          className="text-body-1 text-fg-secondary max-w-md mb-10"
+          className="text-body-1 text-fg-secondary max-w-md mb-8"
           data-animate="hero"
           data-delay="0.15"
         >
