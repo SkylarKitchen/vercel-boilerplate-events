@@ -119,18 +119,6 @@ export default function Hero18() {
               />
             </div>
           </div>
-
-          {/* ─── Bottom strip: peek of the photo below ─── */}
-          <div className="relative h-16 sm:h-24 lg:h-28 overflow-hidden">
-            <Image
-              src="/imgs/service-pnp-pan-6a28000-6a28300-6a28351r.jpg"
-              alt=""
-              fill
-              className="object-cover object-top"
-              aria-hidden="true"
-            />
-            <div className="absolute inset-0 bg-black/30" />
-          </div>
         </div>
       </ScrollReveal>
 
