@@ -17,6 +17,9 @@ const heroes = [
   { id: 14, name: "Olive Brutalist", description: "Heavy borders, stacked color blocks, and raw industrial typography with olive panel" },
   { id: 15, name: "Heather Layers", description: "Overlapping translucent panels on heather with floating content card and depth" },
   { id: 16, name: "Organic Blob", description: "Typography-forward layout with massive organic white blob shape bleeding off the upper-right edge" },
+  { id: 17, name: "Cutout Reveal", description: "Layered cutout with clay panel and photo reveal on scroll" },
+  { id: 18, name: "Halftone Knockout", description: "Scroll-reveal curtain with knockout text window into fixed crowd photo" },
+  { id: 19, name: "Icon Garden", description: "Centered layout with large star focal point and scattered decorative shape SVGs" },
 ];
 
 export default function HeroIndex() {
@@ -37,7 +40,7 @@ export default function HeroIndex() {
           data-animate="hero"
           data-delay="0.15"
         >
-          Sixteen distinct hero designs for the Code with Claude 2026 conference
+          Nineteen distinct hero designs for the Code with Claude 2026 conference
           landing page. Each explores a different visual direction while using
           the same design token system.
         </p>
