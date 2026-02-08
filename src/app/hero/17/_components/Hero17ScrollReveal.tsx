@@ -21,9 +21,12 @@ export default function Hero17ScrollReveal({
     if (!overlay) return;
 
     const ctx = gsap.context(() => {
-      // Scroll-driven reveal: overlay slides up to reveal fixed background
+      // Animate with `top` instead of transform so that
+      // background-attachment:fixed still works inside the overlay
+      // (CSS transforms create a new containing block that breaks fixed bg).
+      // Use actual overlay height so it fully clears the viewport.
       gsap.to(overlay, {
-        yPercent: -100,
+        top: () => `-${overlay.offsetHeight}px`,
         ease: "none",
         scrollTrigger: {
           trigger: wrapper,
