@@ -22,7 +22,7 @@ export default function Hero18() {
       <h1 className="sr-only">Code with Claude 2026 — San Francisco</h1>
 
       {/* ─── Layer 1: Fixed background image ─── */}
-      <div className="fixed inset-0 z-0">
+      <div className="hero18-bg fixed inset-0 z-0">
         <Image
           src="/imgs/service-pnp-pan-6a28000-6a28300-6a28351r.jpg"
           alt="Halftone crowd photo from a developer conference"
@@ -36,7 +36,7 @@ export default function Hero18() {
       {/* ─── Layer 2: Scroll reveal wrapper ─── */}
       <ScrollReveal>
         {/* Oat overlay — the "curtain" that slides up */}
-        <div className="hero18-overlay relative z-10 bg-bg-secondary flex flex-col min-h-screen">
+        <div className="hero18-overlay relative z-10 bg-bg-secondary flex flex-col" style={{ height: "70vh", minHeight: "540px" }}>
 
           {/* ─── Content area ─── */}
           <div className="relative flex flex-col flex-1 pt-28 sm:pt-32 lg:pt-36 px-site">
@@ -98,15 +98,16 @@ export default function Hero18() {
                 w/ Claude
               </h2>
 
-              {/* Grid/molecule decoration */}
+              {/* Grid/molecule decoration — fixed bg cutout like the text */}
               <div
                 className="absolute -bottom-[8%] -right-[3%] w-[22vw] max-w-[340px] aspect-square pointer-events-none select-none z-0"
                 aria-hidden="true"
                 style={{
                   backgroundImage:
-                    "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/imgs/service-pnp-pan-6a28000-6a28300-6a28351r.jpg')",
-                  backgroundSize: "250% auto",
-                  backgroundPosition: "60% 25%",
+                    "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/imgs/service-pnp-pan-6a28000-6a28300-6a28351r.jpg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundAttachment: "fixed",
                   WebkitMaskImage: "url('/shapes/grid.svg')",
                   maskImage: "url('/shapes/grid.svg')",
                   WebkitMaskSize: "contain",

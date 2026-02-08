@@ -18,12 +18,13 @@ export default function ScrollReveal({
     if (!wrapper) return;
 
     const overlay = wrapper.querySelector(".hero18-overlay") as HTMLElement;
+    const bgLayer = document.querySelector(".hero18-bg") as HTMLElement;
+
     if (!overlay) return;
 
     const ctx = gsap.context(() => {
-      // Animate `top` not `transform` — transforms create a new
-      // containing block that breaks background-attachment:fixed
-      // on the knockout text inside the overlay.
+      // Curtain reveal: animate `top` not `transform` so that
+      // background-attachment:fixed still works inside the overlay.
       gsap.to(overlay, {
         top: () => `-${overlay.offsetHeight}px`,
         ease: "none",
@@ -35,6 +36,21 @@ export default function ScrollReveal({
           pin: false,
         },
       });
+
+      // Subtle parallax on the background image — slow upward
+      // drift as user scrolls, creating depth.
+      if (bgLayer) {
+        gsap.to(bgLayer, {
+          y: -80,
+          ease: "none",
+          scrollTrigger: {
+            trigger: wrapper,
+            start: "top top",
+            end: "bottom top",
+            scrub: 0.3,
+          },
+        });
+      }
     }, wrapper);
 
     return () => ctx.revert();
