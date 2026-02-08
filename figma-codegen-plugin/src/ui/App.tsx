@@ -2,12 +2,16 @@ import { useState, useEffect, useCallback } from "react";
 import type { GeneratedCode } from "../shared/types";
 import type { PluginToUIMessage, UIToPluginMessage } from "../shared/messages";
 import { CodePreview } from "./CodePreview";
+import { ContextPreview } from "./ContextPreview";
 import { AnimationPanel } from "./AnimationPanel";
+
+type OutputTab = "context" | "jsx";
 
 export const App = () => {
   const [code, setCode] = useState<GeneratedCode | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<OutputTab>("context");
 
   const sendToPlugin = useCallback((msg: UIToPluginMessage) => {
     parent.postMessage({ pluginMessage: msg }, "*");
@@ -46,7 +50,6 @@ export const App = () => {
     animationType: string,
     enabled: boolean
   ) => {
-    // Optimistic local update
     if (code) {
       setCode({
         ...code,
@@ -132,7 +135,34 @@ export const App = () => {
         </div>
       )}
 
-      <CodePreview imports={code.imports} jsx={code.jsx} />
+      {/* Tab bar */}
+      <div className="tab-bar">
+        <button
+          className={`tab-button ${activeTab === "context" ? "tab-button--active" : ""}`}
+          onClick={() => setActiveTab("context")}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+          </svg>
+          Claude Code
+        </button>
+        <button
+          className={`tab-button ${activeTab === "jsx" ? "tab-button--active" : ""}`}
+          onClick={() => setActiveTab("jsx")}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
+          JSX
+        </button>
+      </div>
+
+      {activeTab === "context" ? (
+        <ContextPreview context={code.claudeContext} />
+      ) : (
+        <CodePreview imports={code.imports} jsx={code.jsx} />
+      )}
 
       {code.animations.length > 0 && (
         <AnimationPanel

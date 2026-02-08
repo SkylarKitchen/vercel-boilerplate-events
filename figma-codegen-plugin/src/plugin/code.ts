@@ -22,6 +22,7 @@ import { mapLayout } from "./layout-mapper.ts";
 import { detectComponents } from "./component-detector.ts";
 import { detectAnimations } from "./animation-detector.ts";
 import { generateCode } from "./jsx-generator.ts";
+import { formatContext } from "./context-formatter.ts";
 import type { ColorContext } from "./token-registry.ts";
 
 // --- Plugin initialization ---
@@ -138,6 +139,16 @@ const runPipeline = () => {
       layoutClasses,
     );
 
+    // Stage 6: Generate Claude Code context document
+    generatedCode.claudeContext = formatContext(
+      nodes,
+      colorMatches,
+      typographyMatches,
+      layoutClasses,
+      componentMatches,
+      animations,
+    );
+
     // Cache state for toggle/regenerate
     lastNodes = nodes;
     lastColorMatches = colorMatches;
@@ -172,6 +183,15 @@ const regenerateWithAnimations = (animations: AnimationSuggestion[]) => {
       lastColorMatches,
       lastTypographyMatches,
       lastLayoutClasses,
+    );
+
+    generatedCode.claudeContext = formatContext(
+      lastNodes,
+      lastColorMatches,
+      lastTypographyMatches,
+      lastLayoutClasses,
+      lastComponentMatches,
+      animations,
     );
 
     const msg: PluginToUIMessage = {

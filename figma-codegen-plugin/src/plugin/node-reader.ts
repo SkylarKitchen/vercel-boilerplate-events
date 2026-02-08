@@ -9,6 +9,8 @@
 import type {
   ExtractedNode,
   ExtractedFill,
+  ExtractedImageFill,
+  ExtractedEffect,
   ExtractedFont,
   ExtractedLayout,
 } from "../shared/types.ts";
@@ -36,6 +38,45 @@ const extractFills = (paints: readonly Paint[] | typeof figma.mixed): ExtractedF
       b: p.color.b,
       a: p.opacity ?? 1,
     }));
+};
+
+/** Extract image fills from a Figma paint array */
+const extractImageFills = (paints: readonly Paint[] | typeof figma.mixed): ExtractedImageFill[] => {
+  if (paints === figma.mixed || !Array.isArray(paints)) return [];
+  return paints
+    .filter((p): p is ImagePaint => p.type === "IMAGE" && p.visible !== false)
+    .map((p) => ({
+      scaleMode: p.scaleMode || "FILL",
+      hash: p.imageHash || null,
+    }));
+};
+
+/** Extract effects (shadows, blurs) from a node */
+const extractEffects = (node: SceneNode): ExtractedEffect[] => {
+  if (!("effects" in node)) return [];
+  const effects = (node as FrameNode).effects;
+  if (!effects || !Array.isArray(effects)) return [];
+  return effects
+    .filter((e) => e.visible !== false)
+    .map((e) => {
+      var result: ExtractedEffect = {
+        type: e.type,
+        visible: true,
+        radius: "radius" in e ? (e as any).radius : 0,
+      };
+      if ("color" in e && (e as any).color) {
+        var c = (e as any).color;
+        result.color = { hex: rgbToHex(c.r, c.g, c.b), a: c.a };
+      }
+      if ("offset" in e && (e as any).offset) {
+        var o = (e as any).offset;
+        result.offset = { x: o.x, y: o.y };
+      }
+      if ("spread" in e) {
+        result.spread = (e as any).spread;
+      }
+      return result;
+    });
 };
 
 /** Extract corner radius, handling mixed radii by taking topLeftRadius */
@@ -148,6 +189,7 @@ export const extractNodes = (nodes: readonly SceneNode[]): ExtractedNode[] => {
     if (!supportedTypes.includes(node.type)) continue;
 
     const fills = hasGeometry(node) ? extractFills(node.fills) : [];
+    const imageFills = hasGeometry(node) ? extractImageFills(node.fills) : [];
     const strokes =
       "strokes" in node ? extractFills((node as GeometryMixin).strokes) : [];
 
@@ -160,12 +202,44 @@ export const extractNodes = (nodes: readonly SceneNode[]): ExtractedNode[] => {
       width: node.width,
       height: node.height,
       fills,
+      imageFills,
       strokes,
       strokeWeight: extractStrokeWeight(node),
       cornerRadius: extractRadius(node),
       opacity: "opacity" in node ? (node as BlendMixin).opacity : 1,
+      effects: extractEffects(node),
       children: [],
     };
+
+    // Sizing mode (hug/fill/fixed)
+    if ("primaryAxisSizingMode" in node) {
+      var frame = node as FrameNode;
+      extracted.primaryAxisSizing = frame.primaryAxisSizingMode || "FIXED";
+      extracted.counterAxisSizing = frame.counterAxisSizingMode || "FIXED";
+    }
+
+    // Overflow / clipping
+    if ("clipsContent" in node) {
+      extracted.overflow = (node as FrameNode).clipsContent ? "HIDDEN" : "VISIBLE";
+    }
+
+    // Positioning (auto vs absolute)
+    if ("layoutPositioning" in node) {
+      extracted.positioning = (node as any).layoutPositioning || "AUTO";
+    }
+
+    // Constraints
+    if ("constraints" in node) {
+      var c = (node as any).constraints;
+      if (c) {
+        extracted.constraints = { horizontal: c.horizontal, vertical: c.vertical };
+      }
+    }
+
+    // Rotation
+    if ("rotation" in node && (node as any).rotation !== 0) {
+      extracted.rotation = (node as any).rotation;
+    }
 
     // Text-specific
     if (node.type === "TEXT") {

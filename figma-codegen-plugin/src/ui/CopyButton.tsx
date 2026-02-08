@@ -2,9 +2,10 @@ import { useState, useCallback, useRef } from "react";
 
 type CopyButtonProps = {
   text: string;
+  label?: string;
 };
 
-export const CopyButton = ({ text }: CopyButtonProps) => {
+export const CopyButton = ({ text, label = "Copy" }: CopyButtonProps) => {
   const [copied, setCopied] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
@@ -34,7 +35,7 @@ export const CopyButton = ({ text }: CopyButtonProps) => {
     <button
       className={`copy-button ${copied ? "copy-button--copied" : ""}`}
       onClick={handleCopy}
-      aria-label={copied ? "Copied to clipboard" : "Copy code to clipboard"}
+      aria-label={copied ? "Copied to clipboard" : "Copy to clipboard"}
     >
       {copied ? (
         <>
@@ -49,7 +50,7 @@ export const CopyButton = ({ text }: CopyButtonProps) => {
             <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
             <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
           </svg>
-          Copy
+          {label}
         </>
       )}
     </button>
