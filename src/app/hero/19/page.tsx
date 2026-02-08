@@ -1,56 +1,13 @@
 import Button from "@/components/Button";
-
-const shapes = [
-  // Top-left
-  { src: "/shapes/carrot-alt.svg", size: 28, top: "8%", left: "6%", rotate: 15 },
-  // Top-center-right
-  { src: "/shapes/star.svg", size: 24, top: "10%", right: "28%", rotate: 0 },
-  // Right-top
-  { src: "/shapes/hourglass.svg", size: 28, top: "18%", right: "7%", rotate: 45 },
-  // Left-upper-mid
-  { src: "/shapes/cwc.svg", size: 28, top: "35%", left: "8%", rotate: 0 },
-  // Left-lower-mid
-  { src: "/shapes/grid.svg", size: 24, bottom: "38%", left: "10%", rotate: 0 },
-  // Right-mid
-  { src: "/shapes/carrot.svg", size: 28, top: "50%", right: "9%", rotate: 0 },
-  // Bottom-left
-  { src: "/shapes/carrot.svg", size: 28, bottom: "14%", left: "12%", rotate: 180 },
-  // Bottom-right-upper
-  { src: "/shapes/carrot.svg", size: 24, bottom: "24%", right: "14%", rotate: 0 },
-  // Bottom-right-lower
-  { src: "/shapes/grid.svg", size: 28, bottom: "10%", right: "8%", rotate: 0 },
-];
+import MatrixShapes from "./MatrixShapes";
 
 export default function Hero19() {
   return (
     <main className="relative min-h-screen bg-bg-secondary flex flex-col items-center justify-center overflow-hidden px-site pt-20 pb-16">
       <h1 className="sr-only">Code with Claude 2026 — San Francisco</h1>
 
-      {/* ─── Scattered decorative shapes ─── */}
-      <div
-        className="absolute inset-0 pointer-events-none select-none"
-        aria-hidden="true"
-      >
-        {shapes.map((shape, i) => (
-          <img
-            key={i}
-            src={shape.src}
-            alt=""
-            width={shape.size}
-            height={shape.size}
-            className="absolute opacity-[0.05]"
-            data-animate="hero"
-            data-delay={String(0.4 + i * 0.06)}
-            style={{
-              top: shape.top,
-              bottom: shape.bottom,
-              left: shape.left,
-              right: shape.right,
-              transform: shape.rotate ? `rotate(${shape.rotate}deg)` : undefined,
-            }}
-          />
-        ))}
-      </div>
+      {/* ─── Matrix-style shape rain ─── */}
+      <MatrixShapes />
 
       {/* ─── Center content column ─── */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-[640px]">

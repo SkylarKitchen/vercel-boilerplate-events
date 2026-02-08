@@ -16,9 +16,11 @@
     @apply tracking-tight;
   }
 
-  /* GSAP autoAlpha: hide scroll-triggered elements before JS hydrates.
+  /* GSAP autoAlpha: hide animated elements before JS hydrates.
      Prevents flash of content that GSAP would immediately set to invisible.
-     Hero/page-load elements are NOT hidden — GSAP initializes them fast enough. */
+     GSAP's fromTo with autoAlpha overrides this via inline styles. */
+  [data-animate='hero-heading'],
+  [data-animate='hero'],
   [data-animate='heading'],
   [data-animate='heading-body'],
   [data-animate='scroll'],
