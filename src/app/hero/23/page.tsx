@@ -65,7 +65,7 @@ export default function Hero23() {
           <div className="flex flex-col gap-8">
             {/* Headline */}
             <h2
-              className="font-serif text-fg-primary leading-[1.05] tracking-[-0.02em]"
+              className="font-serif text-fg-primary text-pretty leading-[1.05] tracking-[-0.02em]"
               style={{ fontSize: "clamp(2.5rem, 5.5vw, 5rem)" }}
               data-animate="hero-heading"
             >
@@ -128,7 +128,7 @@ export default function Hero23() {
       {/* ─── Agenda preview section ─── */}
       <section className="px-site py-16 lg:py-24" data-animate="scroll">
         <h2
-          className="font-serif text-fg-primary leading-tight tracking-[-0.01em] mb-10 lg:mb-14"
+          className="font-serif text-fg-primary text-pretty leading-tight tracking-[-0.01em] mb-10 lg:mb-14"
           style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
         >
           Agenda
