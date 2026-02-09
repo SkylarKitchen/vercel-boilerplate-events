@@ -27,7 +27,7 @@ export default function Hero20() {
 
         {/* Event locations */}
         <div
-          className="flex flex-col gap-3 max-w-md"
+          className="flex flex-col gap-3 w-full max-w-lg mx-auto"
           data-animate="hero"
           data-delay="0.3"
         >
@@ -38,7 +38,7 @@ export default function Hero20() {
                   <span className="font-mono text-sm text-fg-secondary shrink-0 w-10">
                     {event.date}
                   </span>
-                  <span className="flex-1 border-t border-fg-quaternary" />
+                  <span className="flex-1 border-t border-border-tertiary" />
                   <span className="text-body-2 text-fg-primary shrink-0">
                     {event.location}
                   </span>
@@ -48,7 +48,7 @@ export default function Hero20() {
                   <span className="text-body-2 text-fg-primary shrink-0">
                     {event.location}
                   </span>
-                  <span className="flex-1 border-t border-fg-quaternary" />
+                  <span className="flex-1 border-t border-border-tertiary" />
                   <span className="font-mono text-sm text-fg-secondary shrink-0 w-10 text-right">
                     {event.date}
                   </span>
