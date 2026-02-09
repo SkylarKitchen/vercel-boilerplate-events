@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
@@ -133,8 +133,8 @@ export default function Home() {
       <HomeAnimations />
 
       <main id="main">
-      {/* Hero Section */}
-      <section className="relative pt-page-top pb-section-sm px-site overflow-hidden">
+      {/* Hero Section — Magazine Cover */}
+      <section className="relative min-h-[calc(100vh-4rem)] flex flex-col pt-8 lg:pt-12 px-site">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -206,40 +206,80 @@ export default function Home() {
             }),
           }}
         />
-        <Image src="/shapes/Node.svg" alt="" width={231} height={231} className="absolute right-[-5%] top-[15%] w-[40vw] max-w-[400px] opacity-[0.05] pointer-events-none select-none" aria-hidden="true" />
-        <Image src="/shapes/carrot2.svg" alt="" width={231} height={231} className="absolute left-[-8%] bottom-[-5%] w-[30vw] max-w-[300px] opacity-[0.04] pointer-events-none select-none" aria-hidden="true" />
-        <div className="relative max-w-4xl mx-auto text-center">
+
+        <div className="max-w-7xl mx-auto w-full flex flex-col flex-1">
+          {/* Massive headline */}
           <h1
-            className="font-serif text-display-1 text-fg-primary mb-8 text-balance"
+            className="font-serif text-fg-primary leading-[0.88] tracking-[-0.03em]"
+            style={{ fontSize: "clamp(5rem, 14vw, 16rem)" }}
             data-animate="hero-heading"
           >
-            Code with Claude 2026
+            Code w/<br />Claude
           </h1>
-          <div data-animate="hero" data-delay="0.4">
-            <p className="text-body-large-1 text-fg-tertiary max-w-2xl mx-auto mb-10 text-pretty">
-              Anthropic&apos;s annual developer conference. Hands-on workshops,
-              technical sessions, and direct access to our product and research
-              teams.
-            </p>
-          </div>
-          <div data-animate="hero" data-delay="0.6">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Button
-                variant="primary"
-                size="lg"
-                iconFormat="trailing"
-                href="#register"
+
+          {/* Two-column info section */}
+          <div className="flex-1 flex flex-col justify-end pb-10 lg:pb-14">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+              {/* Left: pitch headline + link */}
+              <div
+                className="flex flex-col justify-end gap-8"
+                data-animate="hero"
+                data-delay="0.2"
               >
-                Register for SF
-              </Button>
-              <Button
-                variant="secondary"
-                size="lg"
-                iconFormat="none"
-                href="#events"
+                <h2
+                  className="font-serif text-fg-primary text-balance leading-[1.1] tracking-[-0.01em]"
+                  style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)" }}
+                >
+                  Join us at Claude&rsquo;s
+                  <br />
+                  developer conference
+                </h2>
+                <Link
+                  href="#schedule"
+                  className="text-body-2 text-fg-primary underline underline-offset-4 decoration-fg-tertiary hover:decoration-fg-primary transition-colors w-fit"
+                >
+                  Learn more about agenda and speakers
+                </Link>
+              </div>
+
+              {/* Right: event table + description */}
+              <div
+                className="flex flex-col gap-8"
+                data-animate="hero"
+                data-delay="0.3"
               >
-                View all events
-              </Button>
+                <div className="flex flex-col">
+                  {[
+                    { location: "San Francisco, CA", date: "5/07" },
+                    { location: "London, UK", date: "5/20" },
+                    { location: "Tokyo, JP", date: "6/15" },
+                  ].map((event, i, arr) => (
+                    <div
+                      key={event.location}
+                      className={`flex items-center justify-between py-3 ${
+                        i < arr.length - 1 ? "border-b border-border-tertiary" : ""
+                      }`}
+                    >
+                      <span className="text-body-2 text-fg-primary">
+                        {event.location}
+                      </span>
+                      <span className="text-body-2 text-fg-primary tabular-nums">
+                        {event.date}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-body-2 text-fg-secondary leading-relaxed max-w-md">
+                  Meet with our engineering team, get hands-on with product, and
+                  connect with other developers passionate about Claude.
+                </p>
+              </div>
+            </div>
+
+            {/* Scroll indicator */}
+            <div className="flex justify-end mt-8 lg:mt-10">
+              <span className="text-body-3 text-fg-tertiary">(scroll)</span>
             </div>
           </div>
         </div>
