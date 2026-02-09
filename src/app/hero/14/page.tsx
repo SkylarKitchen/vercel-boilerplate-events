@@ -14,7 +14,7 @@ export default function Hero14() {
       <h1 className="sr-only">Code with Claude 2026 — Olive Brutalist</h1>
 
       {/* Heavy top border */}
-      <div className="border-b-[3px] border-fg-primary pt-28">
+      <div className="border-b border-border-tertiary pt-28">
         <div
           className="px-site py-4 flex items-end justify-between"
           data-animate="hero"
@@ -36,7 +36,7 @@ export default function Hero14() {
         {/* Top block: Olive accent + headline */}
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1fr_40%]">
           {/* Left: Headline */}
-          <div className="flex flex-col justify-center px-site py-12 lg:py-8 border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-fg-primary">
+          <div className="flex flex-col justify-center px-site py-12 lg:py-8 border-b lg:border-b-0 lg:border-r border-border-tertiary">
             <h2
               className="font-serif text-fg-primary font-medium leading-[0.9] tracking-tight"
               style={{ fontSize: "clamp(3.5rem, 9vw, 8rem)" }}
@@ -92,7 +92,7 @@ export default function Hero14() {
         </div>
 
         {/* Bottom block: CTA bar with heavy border */}
-        <div className="border-t-[3px] border-fg-primary">
+        <div className="border-t border-border-tertiary">
           <div className="px-site py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             {/* Left: metadata */}
             <div
