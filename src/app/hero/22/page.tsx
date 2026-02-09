@@ -22,7 +22,7 @@ export default function Hero22() {
       {/* ─── Massive headline ─── */}
       <div className="px-site mt-4 lg:mt-8">
         <h2
-          className="font-serif text-fg-primary text-pretty leading-[0.88] tracking-[-0.03em]"
+          className="font-serif text-fg-primary text-balance leading-[0.88] tracking-[-0.03em]"
           style={{ fontSize: "clamp(6rem, 18vw, 22rem)" }}
           data-animate="hero-heading"
         >
@@ -40,7 +40,7 @@ export default function Hero22() {
             data-delay="0.2"
           >
             <h3
-              className="font-serif text-fg-primary text-pretty leading-[1.1] tracking-[-0.01em]"
+              className="font-serif text-fg-primary text-balance leading-[1.1] tracking-[-0.01em]"
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)" }}
             >
               Join us at Claude&rsquo;s
