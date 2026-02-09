@@ -41,7 +41,7 @@ export default function Hero23() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-8">
             <Link href="/" className="font-serif text-fg-primary text-lg font-medium tracking-tight">
-              w/ Claude
+              Code w/ Claude
             </Link>
             <span className="hidden sm:block text-body-3 text-fg-secondary">
               San Francisco — London — Tokyo
@@ -62,7 +62,7 @@ export default function Hero23() {
 
       {/* ─── Hero section ─── */}
       <section className="px-site pt-6 lg:pt-10 pb-14 lg:pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-12 lg:gap-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-12 lg:gap-10">
           {/* Left: icon bullet points — vertically centered */}
           <div
             className="flex flex-col justify-end gap-8"
@@ -147,11 +147,14 @@ export default function Hero23() {
 
       {/* ─── Divider ─── */}
       <div className="px-site">
-        <hr className="border-border-tertiary" />
+        <div className="max-w-7xl mx-auto">
+          <hr className="border-border-tertiary" />
+        </div>
       </div>
 
       {/* ─── Agenda preview section ─── */}
       <section className="px-site py-16 lg:py-24" data-animate="scroll">
+        <div className="max-w-7xl mx-auto">
         <h2
           className="font-serif text-fg-primary text-balance leading-tight tracking-[-0.01em] mb-10 lg:mb-14"
           style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
@@ -198,6 +201,7 @@ export default function Hero23() {
               ))}
             </div>
           </div>
+        </div>
         </div>
       </section>
     </main>
