@@ -134,7 +134,7 @@ export default function Home() {
 
       <main id="main">
       {/* Hero Section — Magazine Cover */}
-      <section className="relative min-h-[calc(100vh-4rem)] flex flex-col pt-8 lg:pt-12 px-site">
+      <section className="relative min-h-[calc(100vh-4rem)] flex flex-col pt-24 lg:pt-28 px-site">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

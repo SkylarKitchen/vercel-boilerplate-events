@@ -13,7 +13,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-border-tertiary bg-bg-primary">
+    <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-border-tertiary bg-bg-secondary">
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-site">
         {/* Logo */}
         <Link href="/">
