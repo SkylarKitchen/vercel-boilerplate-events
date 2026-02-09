@@ -32,7 +32,7 @@ export default function Hero11() {
 
       {/* Triangle accents */}
       <Image
-        src="/shapes/triangle.svg"
+        src="/shapes/Triangle.svg"
         alt=""
         width={200}
         height={200}
@@ -40,7 +40,7 @@ export default function Hero11() {
         aria-hidden="true"
       />
       <Image
-        src="/shapes/triangle.svg"
+        src="/shapes/Triangle.svg"
         alt=""
         width={160}
         height={160}
@@ -48,7 +48,7 @@ export default function Hero11() {
         aria-hidden="true"
       />
       <Image
-        src="/shapes/triangle.svg"
+        src="/shapes/Triangle.svg"
         alt=""
         width={80}
         height={80}

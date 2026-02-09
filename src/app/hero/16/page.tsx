@@ -39,8 +39,8 @@ export default function Hero16() {
           <div className="flex flex-col gap-4">
             {[
               { icon: "/shapes/carrot.svg", text: "Meet with Engineering teams" },
-              { icon: "/shapes/slash.svg", text: "Get hands-on with product" },
-              { icon: "/shapes/star.svg", text: "Connect with other developers" },
+              { icon: "/shapes/Vector.svg", text: "Get hands-on with product" },
+              { icon: "/shapes/Node.svg", text: "Connect with other developers" },
             ].map((item) => (
               <div key={item.text} className="flex items-start gap-3">
                 <Image

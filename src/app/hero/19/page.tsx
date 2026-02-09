@@ -13,7 +13,7 @@ export default function Hero19() {
       <div className="relative z-10 flex flex-col items-center text-center max-w-[640px]">
         {/* Large star icon */}
         <img
-          src="/shapes/star.svg"
+          src="/shapes/Node.svg"
           alt=""
           width={200}
           height={200}

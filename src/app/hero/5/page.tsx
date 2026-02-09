@@ -13,7 +13,7 @@ export default function Hero5() {
     <main className="relative min-h-screen flex flex-col justify-center bg-bg-secondary pt-16 overflow-hidden max-w-[120rem] mx-auto">
       {/* Low-opacity shape accents */}
       <Image
-        src="/shapes/star.svg"
+        src="/shapes/Node.svg"
         alt=""
         width={200}
         height={200}
@@ -27,7 +27,7 @@ export default function Hero5() {
         className="absolute bottom-24 left-[8%] opacity-[0.03] brightness-0 invert pointer-events-none"
       />
       <Image
-        src="/shapes/slash.svg"
+        src="/shapes/Vector.svg"
         alt=""
         width={100}
         height={100}

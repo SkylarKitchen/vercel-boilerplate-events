@@ -66,7 +66,7 @@ export default function Hero14() {
           >
             {/* Steps shape — large, centered, low opacity */}
             <Image
-              src="/shapes/steps.svg"
+              src="/shapes/Steps.svg"
               alt=""
               width={400}
               height={400}

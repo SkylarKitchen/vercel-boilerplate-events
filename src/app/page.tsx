@@ -206,8 +206,8 @@ export default function Home() {
             }),
           }}
         />
-        <Image src="/shapes/star.svg" alt="" width={231} height={231} className="absolute right-[-5%] top-[15%] w-[40vw] max-w-[400px] opacity-[0.05] pointer-events-none select-none" aria-hidden="true" />
-        <Image src="/shapes/Carrot-1.svg" alt="" width={231} height={231} className="absolute left-[-8%] bottom-[-5%] w-[30vw] max-w-[300px] opacity-[0.04] pointer-events-none select-none" aria-hidden="true" />
+        <Image src="/shapes/Node.svg" alt="" width={231} height={231} className="absolute right-[-5%] top-[15%] w-[40vw] max-w-[400px] opacity-[0.05] pointer-events-none select-none" aria-hidden="true" />
+        <Image src="/shapes/carrot2.svg" alt="" width={231} height={231} className="absolute left-[-8%] bottom-[-5%] w-[30vw] max-w-[300px] opacity-[0.04] pointer-events-none select-none" aria-hidden="true" />
         <div className="relative max-w-4xl mx-auto text-center">
           <h1
             className="font-serif text-display-1 text-fg-primary mb-8 text-balance"

@@ -65,7 +65,7 @@ export default function Hero2() {
             {Array.from({ length: 16 }).map((_, i) => (
               <div key={`top-${i}`} className="flex items-center justify-center p-1">
                 <Image
-                  src="/shapes/star.svg"
+                  src="/shapes/Node.svg"
                   alt=""
                   width={32}
                   height={32}
@@ -78,14 +78,14 @@ export default function Hero2() {
           {/* Middle: 2 large centered stars */}
           <div className="flex-[4] flex flex-col items-center justify-center gap-6 px-8">
             <Image
-              src="/shapes/star.svg"
+              src="/shapes/Node.svg"
               alt=""
               width={192}
               height={192}
               className="w-44 h-44"
             />
             <Image
-              src="/shapes/star.svg"
+              src="/shapes/Node.svg"
               alt=""
               width={192}
               height={192}
@@ -98,7 +98,7 @@ export default function Hero2() {
             {Array.from({ length: 16 }).map((_, i) => (
               <div key={`bot-${i}`} className="flex items-center justify-center p-1">
                 <Image
-                  src="/shapes/star.svg"
+                  src="/shapes/Node.svg"
                   alt=""
                   width={32}
                   height={32}

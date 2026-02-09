@@ -83,7 +83,7 @@ export default function Hero3() {
       >
         {/* CWC shape — top right, bleeding off edge, full black */}
         <Image
-          src="/shapes/cwc.svg"
+          src="/shapes/Circle.svg"
           alt=""
           width={600}
           height={600}
@@ -92,7 +92,7 @@ export default function Hero3() {
 
         {/* Star shape — bottom right, bleeding off edge, full black */}
         <Image
-          src="/shapes/star.svg"
+          src="/shapes/Node.svg"
           alt=""
           width={550}
           height={550}

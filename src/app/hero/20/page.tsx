@@ -14,16 +14,14 @@ export default function Hero20() {
       {/* ─── Left panel: ivory ─── */}
       <div className="relative flex flex-col justify-between bg-bg-secondary lg:w-1/2 min-h-[60vh] lg:min-h-screen px-site py-16 lg:py-20">
         {/* Heading */}
-        <div className="flex-1 flex items-center">
-          <h2
-            className="font-serif text-fg-primary leading-[0.95] tracking-[-0.02em]"
-            data-animate="hero-heading"
-            style={{ fontSize: "clamp(4rem, 10vw, 8rem)" }}
-          >
-            Code w/<br />
-            <span className="inline-block ml-[0.5em]">Claude</span>
-          </h2>
-        </div>
+        <h2
+          className="font-serif text-fg-primary leading-[0.95] tracking-[-0.02em]"
+          data-animate="hero-heading"
+          style={{ fontSize: "clamp(4rem, 10vw, 8rem)" }}
+        >
+          Code w/<br />
+          <span className="inline-block ml-[0.5em]">Claude</span>
+        </h2>
 
         {/* Event locations */}
         <div
@@ -62,16 +60,14 @@ export default function Hero20() {
       {/* ─── Right panel: clay ─── */}
       <div className="relative flex flex-col items-center justify-between bg-accent-clay lg:w-1/2 min-h-[40vh] lg:min-h-screen px-site py-16 lg:py-20">
         {/* Description */}
-        <div
-          className="flex-1 flex items-start pt-12 lg:pt-20"
+        <p
+          className="text-body-1 text-fg-primary text-center max-w-sm leading-relaxed"
           data-animate="hero"
           data-delay="0.15"
         >
-          <p className="text-body-1 text-fg-primary text-center max-w-sm leading-relaxed">
-            Meet with our engineering team, get hands-on with product, and
-            connect with other developers passionate about Claude.
-          </p>
-        </div>
+          Meet with our engineering team, get hands-on with product, and
+          connect with other developers passionate about Claude.
+        </p>
 
         {/* CTA */}
         <div data-animate="hero" data-delay="0.25">

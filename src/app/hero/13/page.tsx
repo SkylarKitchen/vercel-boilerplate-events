@@ -16,7 +16,7 @@ export default function Hero13() {
 
       {/* Hourglass accents */}
       <Image
-        src="/shapes/hourglass.svg"
+        src="/shapes/Hourglass.svg"
         alt=""
         width={180}
         height={180}
@@ -24,7 +24,7 @@ export default function Hero13() {
         aria-hidden="true"
       />
       <Image
-        src="/shapes/hourglass.svg"
+        src="/shapes/Hourglass.svg"
         alt=""
         width={140}
         height={140}

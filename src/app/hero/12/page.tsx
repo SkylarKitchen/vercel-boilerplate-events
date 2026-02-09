@@ -143,7 +143,7 @@ export default function Hero12() {
           {Array.from({ length: 96 }).map((_, i) => (
             <div key={i} className="flex items-center justify-center">
               <Image
-                src="/shapes/grid.svg"
+                src="/shapes/Node-Circuit.svg"
                 alt=""
                 width={40}
                 height={40}

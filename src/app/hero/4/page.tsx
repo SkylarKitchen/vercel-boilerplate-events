@@ -19,7 +19,7 @@ export default function Hero4() {
 
         {/* Low-opacity decorative shapes */}
         <Image
-          src="/shapes/star.svg"
+          src="/shapes/Node.svg"
           alt=""
           width={180}
           height={180}

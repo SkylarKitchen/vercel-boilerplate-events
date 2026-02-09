@@ -261,8 +261,8 @@ export default function ComponentsPage() {
         <div className="max-w-7xl mx-auto">
           <ShowcaseLabel name="SectionHeader" />
           <div className="relative overflow-hidden rounded-card border border-border-tertiary bg-bg-primary p-12 lg:p-16">
-            <ShapeAccent src="/shapes/star.svg" className="absolute right-[-5%] top-[10%] w-[30vw] max-w-[300px] opacity-[0.04]" />
-            <ShapeAccent src="/shapes/Carrot-1.svg" className="absolute left-[-8%] bottom-[-10%] w-[25vw] max-w-[250px] opacity-[0.04]" />
+            <ShapeAccent src="/shapes/Node.svg" className="absolute right-[-5%] top-[10%] w-[30vw] max-w-[300px] opacity-[0.04]" />
+            <ShapeAccent src="/shapes/carrot2.svg" className="absolute left-[-8%] bottom-[-10%] w-[25vw] max-w-[250px] opacity-[0.04]" />
             <div className="relative">
               <SectionHeader
                 eyebrow="Component Showcase"

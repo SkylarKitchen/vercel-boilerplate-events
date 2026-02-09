@@ -4,16 +4,16 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 const SHAPE_SRCS = [
-  "/shapes/star.svg",
+  "/shapes/Node.svg",
   "/shapes/carrot.svg",
-  "/shapes/carrot-alt.svg",
-  "/shapes/grid.svg",
-  "/shapes/hourglass.svg",
-  "/shapes/cwc.svg",
-  "/shapes/circle.svg",
-  "/shapes/slash.svg",
-  "/shapes/triangle.svg",
-  "/shapes/steps.svg",
+  "/shapes/carrot2.svg",
+  "/shapes/Node-Circuit.svg",
+  "/shapes/Hourglass.svg",
+  "/shapes/Circle.svg",
+  "/shapes/Circle.svg",
+  "/shapes/Vector.svg",
+  "/shapes/Triangle.svg",
+  "/shapes/Steps.svg",
 ];
 
 /** How many shapes are alive at any given time */
