@@ -21,7 +21,7 @@ export default function Hero14() {
           data-delay="0"
         >
           <p
-            className="font-mono text-sm text-fg-primary uppercase tracking-[0.4em] font-bold"
+            className="font-mono text-sm text-fg-primary uppercase tracking-wider font-bold"
           >
             Code w/ Claude
           </p>

@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Button from "@/components/Button";
-import ThemeToggle from "@/components/ThemeToggle";
 import MobileNav from "@/components/MobileNav";
 import { navLinks, isActive } from "@/data/navigation";
 
@@ -53,7 +52,6 @@ export default function Header() {
               );
             })}
           </nav>
-          <ThemeToggle />
           <Button variant="primary" size="sm" iconFormat="none" href="#register" className="hidden md:inline-flex">
             Register
           </Button>

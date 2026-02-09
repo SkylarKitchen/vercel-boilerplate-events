@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import Button from "@/components/Button";
-import ThemeToggle from "@/components/ThemeToggle";
 import { navLinks, isActive } from "@/data/navigation";
 
 type MobileNavProps = {
@@ -207,12 +206,6 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
             );
           })}
         </nav>
-
-        {/* Theme toggle */}
-        <div className="mt-8 flex items-center gap-3">
-          <span className="text-sm text-fg-tertiary">Theme</span>
-          <ThemeToggle />
-        </div>
 
         {/* Register CTA */}
         <div className="mt-auto pt-8">
