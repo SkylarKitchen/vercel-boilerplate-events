@@ -87,7 +87,7 @@ function InfoCard({
         {actionLabel && actionHref && (
           <div className="pt-2">
             <Button
-              variant="primary"
+              variant="secondary"
               size="md"
               iconFormat="trailing"
               href={actionHref}

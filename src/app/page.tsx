@@ -20,8 +20,8 @@ const events = [
       "The flagship event featuring the full program — keynote, 25+ breakout sessions, hands-on workshops, product demo stations, office hours, and evening reception.",
     meta: "May 7, 2026 · San Francisco · SVN West",
     tags: ["700 Attendees", "Livestream", "Flagship"],
-    actionLabel: "Register for SF",
-    actionHref: "#register",
+    actionLabel: "View session",
+    actionHref: "#events",
   },
   {
     title: "Code with Claude EMEA",
@@ -29,8 +29,8 @@ const events = [
       "Bringing the Code with Claude experience to Europe. Tailored content for the EMEA developer community with regional customization.",
     meta: "May 20, 2026 · London",
     tags: ["500 Attendees", "EMEA"],
-    actionLabel: "Join Waitlist",
-    actionHref: "#register",
+    actionLabel: "View session",
+    actionHref: "#events",
   },
   {
     title: "Code with Claude APJ",
@@ -38,8 +38,8 @@ const events = [
       "Expanding to Asia-Pacific with a focused program for the APJ developer ecosystem. Regional content and local community connections.",
     meta: "June 2026 · Tokyo",
     tags: ["300 Attendees", "APJ"],
-    actionLabel: "Join Waitlist",
-    actionHref: "#register",
+    actionLabel: "View session",
+    actionHref: "#events",
   },
 ];
 
