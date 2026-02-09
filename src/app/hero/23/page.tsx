@@ -37,10 +37,10 @@ export default function Hero23() {
 
       {/* ─── Hero section ─── */}
       <section className="px-site pt-10 lg:pt-16 pb-14 lg:pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-12 lg:gap-10 items-start">
-          {/* Left: icon bullet points */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-12 lg:gap-10">
+          {/* Left: icon bullet points — vertically centered */}
           <div
-            className="flex flex-col gap-8 pt-2 lg:pt-32"
+            className="flex flex-col justify-center gap-8"
             data-animate="hero"
             data-delay="0.2"
           >
@@ -61,8 +61,9 @@ export default function Hero23() {
             ))}
           </div>
 
-          {/* Center: headline + description + CTAs */}
+          {/* Right area: headline above, then description + event table side by side */}
           <div className="flex flex-col gap-8">
+            {/* Headline */}
             <h2
               className="font-serif text-fg-primary leading-[1.05] tracking-[-0.02em]"
               style={{ fontSize: "clamp(2.5rem, 5.5vw, 5rem)" }}
@@ -71,48 +72,50 @@ export default function Hero23() {
               Join us at Claude&rsquo;s developer conference
             </h2>
 
-            <div
-              className="flex flex-col gap-6"
-              data-animate="hero"
-              data-delay="0.15"
-            >
-              <p className="text-body-1 text-fg-secondary leading-relaxed max-w-lg">
-                Meet with our engineering team, get hands-on with product, and
-                connect with other developers passionate about Claude.
-              </p>
+            {/* Description + CTAs  |  Event table — same row */}
+            <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 lg:gap-12 items-start">
+              <div
+                className="flex flex-col gap-6"
+                data-animate="hero"
+                data-delay="0.15"
+              >
+                <p className="text-body-1 text-fg-secondary leading-relaxed max-w-lg">
+                  Meet with our engineering team, get hands-on with product, and
+                  connect with other developers passionate about Claude.
+                </p>
 
-              <div className="flex flex-wrap gap-3">
-                <Button variant="primary" size="md" href="#register" iconFormat="none">
-                  Apply to attend
-                </Button>
-                <Button variant="secondary" size="md" href="#agenda" iconFormat="none">
-                  Explore agenda
-                </Button>
+                <div className="flex flex-wrap gap-3">
+                  <Button variant="primary" size="md" href="#register" iconFormat="none">
+                    Apply to attend
+                  </Button>
+                  <Button variant="secondary" size="md" href="#agenda" iconFormat="none">
+                    Explore agenda
+                  </Button>
+                </div>
+              </div>
+
+              <div
+                className="flex flex-col"
+                data-animate="hero"
+                data-delay="0.3"
+              >
+                {events.map((event, i) => (
+                  <div
+                    key={event.location}
+                    className={`flex items-center justify-between py-3 ${
+                      i < events.length - 1 ? "border-b border-border-tertiary" : ""
+                    }`}
+                  >
+                    <span className="text-body-2 text-fg-primary">
+                      {event.location}
+                    </span>
+                    <span className="text-body-2 text-fg-primary tabular-nums">
+                      {event.date}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-
-          {/* Right: location/date table */}
-          <div
-            className="flex flex-col pt-2 lg:pt-32"
-            data-animate="hero"
-            data-delay="0.3"
-          >
-            {events.map((event, i) => (
-              <div
-                key={event.location}
-                className={`flex items-center justify-between py-3 ${
-                  i < events.length - 1 ? "border-b border-border-tertiary" : ""
-                }`}
-              >
-                <span className="text-body-2 text-fg-primary">
-                  {event.location}
-                </span>
-                <span className="text-body-2 text-fg-primary tabular-nums">
-                  {event.date}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
