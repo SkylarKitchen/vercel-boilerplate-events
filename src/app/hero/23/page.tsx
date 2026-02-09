@@ -40,7 +40,7 @@ export default function Hero23() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-12 lg:gap-10">
           {/* Left: icon bullet points — vertically centered */}
           <div
-            className="flex flex-col justify-center gap-8"
+            className="flex flex-col justify-end gap-8"
             data-animate="hero"
             data-delay="0.2"
           >
