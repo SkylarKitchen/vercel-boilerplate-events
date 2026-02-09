@@ -27,7 +27,7 @@ export default function Hero20() {
 
         {/* Event locations */}
         <div
-          className="flex flex-col gap-3 w-full max-w-lg mx-auto"
+          className="flex flex-col gap-3 w-full max-w-xs mx-auto"
           data-animate="hero"
           data-delay="0.3"
         >
