@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Button from "@/components/Button";
 
 /**
@@ -32,11 +33,35 @@ const agendaItem = {
 
 export default function Hero23() {
   return (
-    <main className="bg-bg-primary pt-20">
+    <main className="bg-bg-primary">
       <h1 className="sr-only">Code with Claude 2026</h1>
 
+      {/* ─── Custom nav ─── */}
+      <nav className="px-site py-5" data-animate="hero">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-8">
+            <Link href="/" className="font-serif text-fg-primary text-lg font-medium tracking-tight">
+              w/ Claude
+            </Link>
+            <span className="hidden sm:block text-body-3 text-fg-secondary">
+              San Francisco — London — Tokyo
+            </span>
+          </div>
+          <div className="flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-6 text-body-3 text-fg-primary">
+              <Link href="#speakers" className="hover:text-fg-secondary transition-colors">Speakers</Link>
+              <Link href="#agenda" className="hover:text-fg-secondary transition-colors">Agenda</Link>
+              <Link href="#locations" className="hover:text-fg-secondary transition-colors">Locations</Link>
+            </div>
+            <Button variant="primary" size="sm" href="#register" iconFormat="none">
+              Apply to attend
+            </Button>
+          </div>
+        </div>
+      </nav>
+
       {/* ─── Hero section ─── */}
-      <section className="px-site pt-10 lg:pt-16 pb-14 lg:pb-20">
+      <section className="px-site pt-6 lg:pt-10 pb-14 lg:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-12 lg:gap-10">
           {/* Left: icon bullet points — vertically centered */}
           <div
