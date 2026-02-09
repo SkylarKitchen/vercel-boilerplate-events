@@ -58,14 +58,20 @@ export default function Hero16() {
             ))}
           </div>
 
-          {/* Center: date block */}
-          <div className="font-mono">
-            <p className="text-body-2 text-fg-primary font-medium">
-              May 22, 2026
-            </p>
-            <p className="text-body-3 text-fg-secondary">
-              San Francisco, California
-            </p>
+          {/* Center: date/location blocks */}
+          <div className="flex flex-col gap-3 font-mono">
+            <div>
+              <p className="text-body-2 text-fg-primary font-medium">May 7, 2026</p>
+              <p className="text-body-3 text-fg-secondary">San Francisco, CA</p>
+            </div>
+            <div>
+              <p className="text-body-2 text-fg-primary font-medium">May 20, 2026</p>
+              <p className="text-body-3 text-fg-secondary">London, UK</p>
+            </div>
+            <div>
+              <p className="text-body-2 text-fg-primary font-medium">June 15, 2026</p>
+              <p className="text-body-3 text-fg-secondary">Tokyo, JP</p>
+            </div>
           </div>
 
           {/* Right: CTA button */}
