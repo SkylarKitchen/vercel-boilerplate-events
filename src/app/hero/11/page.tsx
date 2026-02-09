@@ -23,7 +23,7 @@ export default function Hero11() {
           style={{
             fontSize: "clamp(18rem, 45vw, 42rem)",
             lineHeight: 1,
-            transform: "rotate(-12deg) translateY(-5%)",
+            transform: "translateY(-5%)",
           }}
         >
           CODE
@@ -44,7 +44,7 @@ export default function Hero11() {
         alt=""
         width={160}
         height={160}
-        className="absolute bottom-[10%] right-[7%] w-[10vw] max-w-[160px] opacity-80 rotate-180 pointer-events-none select-none"
+        className="absolute bottom-[10%] right-[7%] w-[10vw] max-w-[160px] opacity-80 pointer-events-none select-none"
         aria-hidden="true"
       />
       <Image
@@ -52,7 +52,7 @@ export default function Hero11() {
         alt=""
         width={80}
         height={80}
-        className="absolute top-[45%] right-[18%] w-[5vw] max-w-[80px] opacity-50 rotate-90 pointer-events-none select-none"
+        className="absolute top-[45%] right-[18%] w-[5vw] max-w-[80px] opacity-50 pointer-events-none select-none"
         aria-hidden="true"
       />
 

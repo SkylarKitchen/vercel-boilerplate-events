@@ -28,7 +28,7 @@ export default function Hero13() {
         alt=""
         width={140}
         height={140}
-        className="absolute bottom-[8%] right-[8%] w-[8vw] max-w-[140px] opacity-[0.08] rotate-45 pointer-events-none select-none"
+        className="absolute bottom-[8%] right-[8%] w-[8vw] max-w-[140px] opacity-[0.08] pointer-events-none select-none"
         aria-hidden="true"
       />
 

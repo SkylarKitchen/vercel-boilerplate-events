@@ -48,7 +48,7 @@ export default function MatrixShapes() {
           top: `${randomBetween(5, 90)}%`,
           left: `${randomBetween(3, 97)}%`,
           opacity: "0",
-          transform: `rotate(${randomBetween(0, 360)}deg)`,
+          transform: "none",
         });
         container.appendChild(img);
         spawnCount++;
