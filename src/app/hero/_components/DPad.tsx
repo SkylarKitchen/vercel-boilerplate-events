@@ -53,13 +53,13 @@ export default function DPad() {
       )
         return;
 
-      const key = e.key;
+      const { key, code } = e;
       let dir: Direction | null = null;
 
-      if (key === "ArrowLeft" || key === "a") dir = "left";
-      else if (key === "ArrowRight" || key === "d") dir = "right";
-      else if (key === "ArrowUp" || key === "w") dir = "up";
-      else if (key === "ArrowDown" || key === "s") dir = "down";
+      if (key === "ArrowLeft" || code === "KeyA") dir = "left";
+      else if (key === "ArrowRight" || code === "KeyD") dir = "right";
+      else if (key === "ArrowUp" || code === "KeyW") dir = "up";
+      else if (key === "ArrowDown" || code === "KeyS") dir = "down";
 
       if (dir) {
         e.preventDefault();
