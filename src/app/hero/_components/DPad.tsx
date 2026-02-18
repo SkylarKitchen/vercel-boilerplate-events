@@ -1,14 +1,15 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useState } from "react";
 
 const TOTAL_HEROES = 23;
 
 type Direction = "up" | "down" | "left" | "right";
 
-const btn =
+const btnBase =
   "flex items-center justify-center size-8 border-[1.333px] border-fg-primary text-fg-primary text-base leading-6 cursor-pointer transition-colors hover:bg-fg-primary hover:text-bg-secondary";
+const btnPressed = "bg-fg-primary text-bg-secondary";
 
 export default function DPad() {
   const pathname = usePathname();
@@ -16,6 +17,7 @@ export default function DPad() {
 
   const match = pathname.match(/^\/hero\/(\d+)$/);
   const currentHero = match ? parseInt(match[1], 10) : null;
+  const [pressed, setPressed] = useState<Direction | null>(null);
 
   const navigate = useCallback(
     (direction: Direction) => {
@@ -45,30 +47,44 @@ export default function DPad() {
   useEffect(() => {
     if (currentHero === null) return;
 
-    function handleKeyDown(e: KeyboardEvent) {
-      if (
+    function dirFromEvent(e: KeyboardEvent): Direction | null {
+      const { key, code } = e;
+      if (key === "ArrowLeft" || code === "KeyA") return "left";
+      if (key === "ArrowRight" || code === "KeyD") return "right";
+      if (key === "ArrowUp" || code === "KeyW") return "up";
+      if (key === "ArrowDown" || code === "KeyS") return "down";
+      return null;
+    }
+
+    function isFormField(e: KeyboardEvent) {
+      return (
         e.target instanceof HTMLInputElement ||
         e.target instanceof HTMLTextAreaElement ||
         e.target instanceof HTMLSelectElement
-      )
-        return;
+      );
+    }
 
-      const { key, code } = e;
-      let dir: Direction | null = null;
-
-      if (key === "ArrowLeft" || code === "KeyA") dir = "left";
-      else if (key === "ArrowRight" || code === "KeyD") dir = "right";
-      else if (key === "ArrowUp" || code === "KeyW") dir = "up";
-      else if (key === "ArrowDown" || code === "KeyS") dir = "down";
-
+    function handleKeyDown(e: KeyboardEvent) {
+      if (isFormField(e)) return;
+      const dir = dirFromEvent(e);
       if (dir) {
         e.preventDefault();
+        setPressed(dir);
         navigate(dir);
       }
     }
 
+    function handleKeyUp(e: KeyboardEvent) {
+      const dir = dirFromEvent(e);
+      if (dir) setPressed((prev) => (prev === dir ? null : prev));
+    }
+
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
+    };
   }, [currentHero, navigate]);
 
   if (currentHero === null) return null;
@@ -88,7 +104,7 @@ export default function DPad() {
         <div />
         <button
           onClick={() => navigate("up")}
-          className={`${btn} rounded-tl-lg rounded-tr-lg`}
+          className={`${btnBase} rounded-tl-lg rounded-tr-lg ${pressed === "up" ? btnPressed : ""}`}
           aria-label="Back to hero index"
         >
           ↑
@@ -99,7 +115,7 @@ export default function DPad() {
         <button
           onClick={() => navigate("left")}
           disabled={!canGoLeft}
-          className={`${btn} rounded-tl-lg rounded-bl-lg disabled:opacity-25 disabled:pointer-events-none`}
+          className={`${btnBase} rounded-tl-lg rounded-bl-lg disabled:opacity-25 disabled:pointer-events-none ${pressed === "left" ? btnPressed : ""}`}
           aria-label="Previous hero"
         >
           ←
@@ -110,7 +126,7 @@ export default function DPad() {
         <button
           onClick={() => navigate("right")}
           disabled={!canGoRight}
-          className={`${btn} rounded-tr-lg rounded-br-lg disabled:opacity-25 disabled:pointer-events-none`}
+          className={`${btnBase} rounded-tr-lg rounded-br-lg disabled:opacity-25 disabled:pointer-events-none ${pressed === "right" ? btnPressed : ""}`}
           aria-label="Next hero"
         >
           →
@@ -120,7 +136,7 @@ export default function DPad() {
         <div />
         <button
           onClick={() => navigate("down")}
-          className={`${btn} rounded-bl-lg rounded-br-lg`}
+          className={`${btnBase} rounded-bl-lg rounded-br-lg ${pressed === "down" ? btnPressed : ""}`}
           aria-label="Scroll down"
         >
           ↓
