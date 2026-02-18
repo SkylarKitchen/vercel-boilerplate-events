@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HomeAnimations from "@/components/HomeAnimations";
+import DPad from "./_components/DPad";
 
 export default function HeroLayout({
   children,
@@ -12,6 +13,7 @@ export default function HeroLayout({
       <Header />
       <HomeAnimations />
       {children}
+      <DPad />
       <Footer />
     </>
   );
