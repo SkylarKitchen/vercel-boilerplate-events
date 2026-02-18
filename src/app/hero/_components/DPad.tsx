@@ -79,11 +79,12 @@ export default function DPad() {
       if (dir) setPressed((prev) => (prev === dir ? null : prev));
     }
 
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("keyup", handleKeyUp);
+    // Capture phase so we fire before Agentation toolbar's document-level handlers
+    document.addEventListener("keydown", handleKeyDown, true);
+    document.addEventListener("keyup", handleKeyUp, true);
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("keyup", handleKeyUp);
+      document.removeEventListener("keydown", handleKeyDown, true);
+      document.removeEventListener("keyup", handleKeyUp, true);
     };
   }, [currentHero, navigate]);
 
